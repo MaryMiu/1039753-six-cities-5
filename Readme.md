@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Мария Орлова](https://up.htmlacademy.ru/react/5/user/1039753).
-* Наставник: `Неизвестно`.
+* Наставник: [Анатолий Новосёлов](https://up.htmlacademy.ru/react/5/user/1474615).
 
 ---
 
