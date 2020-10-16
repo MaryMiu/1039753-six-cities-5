@@ -3,15 +3,21 @@ import PropTypes from "prop-types";
 import {
   formatFloatingPointNumberToPercent
 } from "../../utils.js";
+import moment from "moment";
 
 const renderRating = (rating) => {
   return formatFloatingPointNumberToPercent(rating);
+};
+
+export const formatCommentDate = (date) => {
+  return moment(date).format(`MMMM YYYY`);
 };
 
 const OfferReview = (props) => {
   const {review} = props;
   const {name, avatar, star, date, text} = review;
   const percentFromRating = renderRating(star);
+  const humanDate = formatCommentDate(date);
   return (
     <li className="reviews__item">
       <div className="reviews__user user">
@@ -32,7 +38,7 @@ const OfferReview = (props) => {
         <p className="reviews__text">
           {text}
         </p>
-        <time className="reviews__time" dateTime="2019-04-24">April 2019</time>
+        <time className="reviews__time" dateTime="2019-04-24">{humanDate}</time>
       </div>
     </li>
   );

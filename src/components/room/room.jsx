@@ -35,24 +35,12 @@ const Room = (props) => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/room.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/apartment-01.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/apartment-02.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/apartment-03.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/studio-01.jpg" alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image" src="/img/apartment-01.jpg" alt="Photo studio" />
-              </div>
+              {photo.map((img, i) => {
+                return (
+                  <div key={`${i}-img`} className="property__image-wrapper">
+                    <img className="property__image" src={`/img/${img}`} alt="Photo studio" />
+                  </div>);
+              })}
             </div>
           </div>
           <div className="property__container container">
@@ -136,7 +124,7 @@ Room.propTypes = {
   offers: PropTypes.array.isRequired,
   offer: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    photo: PropTypes.string.isRequired,
+    photo: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     premium: PropTypes.bool.isRequired,

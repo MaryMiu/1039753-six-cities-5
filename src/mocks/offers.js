@@ -19,13 +19,14 @@ const OFFERS_COUNT = 4;
 const generateId = () => Date.now() + parseInt(Math.random() * 10000, 10);
 
 const generatePhoto = () => {
-  const images = [
+  return [
     `apartment-01.jpg`,
     `apartment-02.jpg`,
-    `apartment-03.jpg`
+    `apartment-03.jpg`,
+    `room.jpg`,
+    `studio-01.jpg`,
+    `apartment-01.jpg`
   ];
-
-  return images[getRandomInteger(0, images.length - 1)];
 };
 
 const generateTitle = () => {
