@@ -8,24 +8,10 @@ import {
   formatFloatingPointNumberToPercent
 } from "../../utils.js";
 
-const renderPremium = () => {
-  return (
-    <div className="property__mark">
-      <span>Premium</span>
-    </div>
-  );
-};
-
-const renderRating = (rating) => {
-  return formatFloatingPointNumberToPercent(rating);
-};
-
 const Room = (props) => {
   const {reviews, offers} = props;
   const {id, photo, title, description, premium, type, rating, price, bedroomsCount, guestsCount, stuff, owner} = offers[0];
   const {avatar, name, badge} = owner;
-  const percentFromRating = renderRating(rating);
-  const premiumTemplate = renderPremium();
   const neighbourhood = offers.slice(0, 3);
 
   return (
@@ -45,7 +31,7 @@ const Room = (props) => {
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              {premium ? premiumTemplate : ``}
+              {premium ? <div className="property__mark"><span>Premium</span></div> : ``}
               <div className="property__name-wrapper">
                 <h1 className="property__name">
                   {title}
@@ -59,7 +45,7 @@ const Room = (props) => {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: percentFromRating + `%`}}></span>
+                  <span style={{width: formatFloatingPointNumberToPercent(rating) + `%`}}></span>
                   <span className="visually-hidden">Rating</span>
                 </div>
                 <span className="property__rating-value rating__value">{rating}</span>
@@ -82,8 +68,8 @@ const Room = (props) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  {stuff.map((stuffItem, i) => {
-                    return (<li key={`${i}-${id}`} className="property__inside-item">
+                  {stuff.map((stuffItem) => {
+                    return (<li key={id} className="property__inside-item">
                       {stuffItem}
                     </li>);
                   })}

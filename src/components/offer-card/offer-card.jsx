@@ -6,26 +6,12 @@ import {
   formatFloatingPointNumberToPercent
 } from "../../utils.js";
 
-const renderPremium = () => {
-  return (
-    <div className="place-card__mark">
-      <span>Premium</span>
-    </div>
-  );
-};
-
-const renderRating = (rating) => {
-  return formatFloatingPointNumberToPercent(rating);
-};
-
 const OfferCard = (props) => {
   const {offer} = props;
   const {photo, title, premium, type, rating, price} = offer;
-  const percentFromRating = renderRating(rating);
-  const premiumTemplate = renderPremium();
   return (
     <article className="cities__place-card place-card" onMouseEnter={() => props.onMouseEnter()} >
-      {premium ? premiumTemplate : ``}
+      {premium ? <div className="place-card__mark"><span>Premium</span></div> : ``}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <Link to={`/offer/${offer.id}`}>
           <img className="place-card__image" src={`img/${photo[0]}`} width="260" height="200" alt="Place image" />
@@ -46,7 +32,7 @@ const OfferCard = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: percentFromRating + `%`}}></span>
+            <span style={{width: formatFloatingPointNumberToPercent(rating) + `%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

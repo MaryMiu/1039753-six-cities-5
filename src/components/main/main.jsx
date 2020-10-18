@@ -5,7 +5,6 @@ import OfferList from "../offer-list/offer-list";
 
 const Main = (props) => {
   const {count, offers} = props;
-  const offersList = <OfferList offers={offers} />;
 
   return (
     <div className="page page--gray page--main">
@@ -68,7 +67,7 @@ const Main = (props) => {
                   <li className="places__option" tabIndex="0">Top rated first</li>
                 </ul>
               </form>
-              {offersList}
+              <OfferList offers={offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
@@ -79,7 +78,6 @@ const Main = (props) => {
     </div>
   );
 };
-
 
 export default Main;
 

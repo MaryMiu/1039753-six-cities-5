@@ -17,9 +17,9 @@ const Favorites = (props) => {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              {cities.map((city, i) => {
+              {cities.map((city) => {
                 return (
-                  <FavoritesLocation key={`${i}-${city}`} city={city} offers={offers} />
+                  <FavoritesLocation key={city} city={city} offers={offers} />
                 );
               })}
             </ul>

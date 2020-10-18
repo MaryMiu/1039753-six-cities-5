@@ -12,6 +12,7 @@ export default class ReviewsForm extends PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFieldChange = this.handleFieldChange.bind(this);
   }
+
   handleSubmit(evt) {
     evt.preventDefault();
   }

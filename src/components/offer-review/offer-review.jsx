@@ -5,10 +5,6 @@ import {
 } from "../../utils.js";
 import moment from "moment";
 
-const renderRating = (rating) => {
-  return formatFloatingPointNumberToPercent(rating);
-};
-
 export const formatCommentDate = (date) => {
   return moment(date).format(`MMMM YYYY`);
 };
@@ -16,7 +12,6 @@ export const formatCommentDate = (date) => {
 const OfferReview = (props) => {
   const {review} = props;
   const {name, avatar, star, date, text} = review;
-  const percentFromRating = renderRating(star);
   const humanDate = formatCommentDate(date);
   return (
     <li className="reviews__item">
@@ -31,7 +26,7 @@ const OfferReview = (props) => {
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{width: percentFromRating + `%`}}></span>
+            <span style={{width: formatFloatingPointNumberToPercent(star) + `%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

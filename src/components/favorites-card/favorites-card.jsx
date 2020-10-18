@@ -6,14 +6,9 @@ import {
   formatFloatingPointNumberToPercent
 } from "../../utils.js";
 
-const renderRating = (rating) => {
-  return formatFloatingPointNumberToPercent(rating);
-};
-
 const FavoritesCard = (props) => {
   const {offer} = props;
   const {photo, title, type, rating, price} = offer;
-  const percentFromRating = renderRating(rating);
 
   return (
     <article className="favorites__card place-card">
@@ -37,7 +32,7 @@ const FavoritesCard = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: percentFromRating + `%`}}></span>
+            <span style={{width: formatFloatingPointNumberToPercent(rating) + `%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
