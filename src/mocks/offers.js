@@ -2,7 +2,9 @@ import {
   getRandomInteger,
   getRandomFloatingPointNumber
 } from "../utils.js";
-import {OfferType} from "../const";
+import {
+  OfferType
+} from "../const";
 
 const AVATAR_URL = `https://api.adorable.io/avatars/`;
 const MIN_RAITING = 1;
@@ -121,9 +123,23 @@ const generateName = () => {
   return names[getRandomInteger(0, names.length - 1)];
 };
 
+const COORDS = [
+  [52.3909553943508, 4.85309666406198],
+  [52.369553943508, 4.85309666406198],
+  [52.3909553943508, 4.929309666406198],
+  [52.3809553943508, 4.939309666406198]
+];
+
+const getCoord = (coords) => {
+  const currentCoord = coords[0];
+  coords.shift();
+  return currentCoord;
+};
+
 const generateOffer = () => {
   return {
     id: generateId(),
+    coord: getCoord(COORDS),
     photo: generatePhoto(),
     title: generateTitle(),
     description: generateDescription(),
