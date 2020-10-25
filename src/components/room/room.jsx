@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header";
 import OfferReviews from "../offer-reviews/offer-reviews";
-import OfferNeighbourhood from "../offer-neighbourhood/offer-neighbourhood";
+import PlacesList from "../places-list/places-list";
+import Map from "../map/map";
 import {OfferType} from "../../const";
 import {
   formatFloatingPointNumberToPercent
@@ -12,7 +13,19 @@ const Room = (props) => {
   const {reviews, offers} = props;
   const {id, photo, title, description, premium, type, rating, price, bedroomsCount, guestsCount, stuff, owner} = offers[0];
   const {avatar, name, badge} = owner;
-  const neighbourhood = offers.slice(0, 3);
+  const offersNear = offers.slice(0, 3);
+  const coord = offersNear.map((offer) => offer.coord);
+  const mapStyle = {
+    display: `flex`,
+    height: `100%`,
+    width: 1144,
+    margin: `0 auto`,
+  };
+  const currentClasses = {
+    listClass: `near-places__list`,
+    cardClass: `near-places__card`,
+    imgClass: `near-places__image-wrapper`,
+  };
 
   return (
     <div className="page">
@@ -94,10 +107,15 @@ const Room = (props) => {
               <OfferReviews reviews={reviews} />
             </div>
           </div>
-          <section className="property__map map"></section>
+          <section className="property__map map">
+            <Map coord={coord} mapStyle={mapStyle} />
+          </section>
         </section>
         <div className="container">
-          <OfferNeighbourhood offers={neighbourhood} />
+          <section className="near-places places">
+            <h2 className="near-places__title">Other places in the neighbourhood</h2>
+            <PlacesList offers={offersNear} currentClasses={currentClasses} />
+          </section>
         </div>
       </main>
     </div>
