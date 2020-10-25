@@ -12,3 +12,7 @@ export const getRandomFloatingPointNumber = (min, max) => {
 export const formatFloatingPointNumberToPercent = (num) => {
   return num * 10 * 2;
 };
+
+export const extend = (a, b) => {
+  return Object.assign({}, a, b);
+};
