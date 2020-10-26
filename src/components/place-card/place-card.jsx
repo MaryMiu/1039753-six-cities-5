@@ -6,13 +6,15 @@ import {
   formatFloatingPointNumberToPercent
 } from "../../utils.js";
 
-const OfferCard = (props) => {
-  const {offer} = props;
+const PlaceCard = (props) => {
+  const {currentClasses, offer} = props;
   const {photo, title, premium, type, rating, price} = offer;
+  const {cardClass, imgClass} = currentClasses;
+
   return (
-    <article className="cities__place-card place-card" onMouseEnter={() => props.onMouseEnter()} >
+    <article className={`${cardClass} place-card`} onMouseEnter={() => props.onMouseEnter()} >
       {premium ? <div className="place-card__mark"><span>Premium</span></div> : ``}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${imgClass} place-card__image-wrapper`}>
         <Link to={`/offer/${offer.id}`}>
           <img className="place-card__image" src={`img/${photo[0]}`} width="260" height="200" alt="Place image" />
         </Link>
@@ -45,10 +47,15 @@ const OfferCard = (props) => {
   );
 };
 
-export default OfferCard;
+export default PlaceCard;
 
-OfferCard.propTypes = {
+PlaceCard.propTypes = {
   onMouseEnter: PropTypes.func.isRequired,
+  currentClasses: PropTypes.shape({
+    listClass: PropTypes.string,
+    cardClass: PropTypes.string,
+    imgClass: PropTypes.string,
+  }),
   offer: PropTypes.shape({
     id: PropTypes.number.isRequired,
     photo: PropTypes.array.isRequired,
