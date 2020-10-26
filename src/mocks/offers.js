@@ -158,8 +158,8 @@ const generateOffer = () => {
   };
 };
 
-const generateOffers = () => {
-  return new Array(OFFERS_COUNT).fill().map(generateOffer);
+const generateOffers = (count = OFFERS_COUNT) => {
+  return new Array(count).fill().map(generateOffer);
 };
 
 export default generateOffers();

@@ -8,13 +8,13 @@ import Room from "../room/room";
 
 const App = (props) => {
 
-  const {count, offers, reviews} = props;
+  const {count, offers, reviews, locations} = props;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main count={count} offers={offers} />
+          <Main count={count} offers={offers} locations={locations} />
         </Route>
         <Route exact path="/login">
           <SignIn />
