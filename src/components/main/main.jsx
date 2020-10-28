@@ -4,10 +4,12 @@ import Header from "../header/header";
 import OfferList from "../offer-list/offer-list";
 import Map from "../map/map";
 import Locations from "../locations/locations";
+import {getOffersByCity} from "../../city";
 
 const Main = (props) => {
   const {count, offers, locations} = props;
   const coord = offers.map((offer) => offer.coord);
+  console.log(getOffersByCity('Paris', locations));
   const cities = locations.map((location) => location.title);
 
   return (
