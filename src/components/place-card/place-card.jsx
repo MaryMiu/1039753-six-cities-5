@@ -47,10 +47,15 @@ const PlaceCard = (props) => {
   );
 };
 
-export default OfferCard;
+export default PlaceCard;
 
-OfferCard.propTypes = {
+PlaceCard.propTypes = {
   onMouseEnter: PropTypes.func.isRequired,
+  currentClasses: PropTypes.shape({
+    listClass: PropTypes.string,
+    cardClass: PropTypes.string,
+    imgClass: PropTypes.string,
+  }),
   offer: PropTypes.shape({
     id: PropTypes.number.isRequired,
     photo: PropTypes.array.isRequired,

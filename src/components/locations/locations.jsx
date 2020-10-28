@@ -1,43 +1,49 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import {Сities} from "../../const";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../store/action";
 
-export default class Locations extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentCity: Сities.PARIS
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
 
-  handleClick(evt) {
+const Locations = (props) => {
+  const {cities, onCityChange, city} = props;
+  return (
+    <section className="locations container">
+      <ul className="locations__list tabs__list">
+        {cities.map((it) => (
+          <li key={it} className="locations__item">
+            <a className={`locations__item-link tabs__item ${city === it ? `tabs__item--active` : ``}`} data-location={`${it}`} href="#" onClick={(evt) => {
+              onCityChange(evt);
+            }}>
+              <span>{`${it}`}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  city: state.city,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onCityChange(evt) {
     const link = evt.target.closest(`.locations__item-link`);
     evt.preventDefault();
     if (link !== null) {
       const {dataset} = link;
-      this.setState({currentCity: dataset.location});
+      dispatch(ActionCreator.changeCity(dataset.location));
     }
-  }
-
-  render() {
-    const {cities} = this.props;
-    return (
-      <section className="locations container">
-        <ul className="locations__list tabs__list">
-          {cities.map((city) => (
-            <li key={city} className="locations__item">
-              <a className={`locations__item-link tabs__item ${this.state.currentCity === city ? `tabs__item--active` : ``}`} data-location={`${city}`} href="#" onClick={this.handleClick}>
-                <span>{`${city}`}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-    );
-  }
-}
+    return false;
+  },
+});
 
 Locations.propTypes = {
   cities: PropTypes.array.isRequired,
+  city: PropTypes.string.isRequired,
+  onCityChange: PropTypes.func.isRequired,
 };
+
+export {Locations};
+export default connect(mapStateToProps, mapDispatchToProps)(Locations);

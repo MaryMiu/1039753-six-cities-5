@@ -1,4 +1,6 @@
-export const getOffersByCity = (city, locations) => {
+import locations from "./mocks/locations";
+
+export const getOffersByCity = (city) => {
   const currentLocation = locations.find((item) => {
     return item.title === city;
   });

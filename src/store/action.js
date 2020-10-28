@@ -1,4 +1,3 @@
-import {Сities} from "../const";
 import {getOffersByCity} from "../city";
 
 export const ActionType = {
@@ -8,13 +7,13 @@ export const ActionType = {
 };
 
 export const ActionCreator = {
-  changeCity: () => ({
+  changeCity: (cityName) => ({
     type: ActionType.CHANGE_CITY,
-    payload: Сities.PARIS,
+    payload: cityName,
   }),
-  getOffers: () => ({
+  getOffers: (cityName) => ({
     type: ActionType.GET_OFFERS,
-    payload: getOffersByCity(Сities.PARIS),
+    payload: getOffersByCity(cityName),
   }),
   resetCity: () => ({
     type: ActionType.RESET_CITY,

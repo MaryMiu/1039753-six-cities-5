@@ -45,12 +45,14 @@ export default class Map extends PureComponent {
   }
 
   render() {
+    const {mapStyle} = this.props;
     return (
-      <section className="cities__map map" id="map"></section>
+      <div style={mapStyle} id="map"></div>
     );
   }
 }
 
 Map.propTypes = {
   coord: PropTypes.array.isRequired,
+  mapStyle: PropTypes.object.isRequired
 };
