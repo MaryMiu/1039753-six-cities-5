@@ -13,7 +13,6 @@ class Main extends PureComponent {
 
   render() {
     const {city, offers} = this.props;
-    const coord = offers.map((offer) => offer.coord);
     const mapStyle = {
       display: `flex`,
       height: `100%`,
@@ -57,7 +56,7 @@ class Main extends PureComponent {
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <Map coord={coord} mapStyle={mapStyle} />
+                  <Map offers={offers} mapStyle={mapStyle} />
                 </section>
               </div>
             </div>

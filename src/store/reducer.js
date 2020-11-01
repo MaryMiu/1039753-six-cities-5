@@ -5,7 +5,8 @@ import {getOffersByCity} from "../city";
 
 const initialState = {
   city: cities[0],
-  offers: getOffersByCity(cities[0])
+  offers: getOffersByCity(cities[0]),
+  activeOffer: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,7 +20,12 @@ const reducer = (state = initialState, action) => {
         offers: action.payload
       });
     case ActionType.RESET_CITY:
-      return extend({}, initialState);
+      return extend({}, initialState
+      );
+    case ActionType.GET_ACTIVE_OFFER:
+      return extend(state, {
+        activeOffer: action.payload
+      });
   }
 
   return state;

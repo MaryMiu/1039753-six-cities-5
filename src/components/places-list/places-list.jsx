@@ -1,34 +1,42 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../store/action";
 import PlaceCard from "../place-card/place-card";
 
-export default class PlacesList extends PureComponent {
+class PlacesList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       active: null
     };
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
 
   render() {
-    const {currentClasses, offers} = this.props;
+    const {currentClasses, offers, onMouseEnter} = this.props;
     const {listClass} = currentClasses;
     return (
       <div className={`${listClass} places__list`}>
         {offers.map((offer) => {
           return (
-            <PlaceCard key={offer.id} offer={offer} currentClasses={currentClasses} onMouseEnter={this.handleMouseEnter} />
+            <PlaceCard key={offer.id} offer={offer} currentClasses={currentClasses} onMouseEnter={onMouseEnter} />
           );
         })}
       </div>
     );
   }
-
-  handleMouseEnter(id) {
-    this.setState({active: id});
-  }
 }
+
+const mapStateToProps = (state) => ({
+  activeOffer: state.activeOffer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onMouseEnter(offer) {
+    dispatch(ActionCreator.getActiveOffer(offer));
+  }
+});
+
 
 PlacesList.propTypes = {
   currentClasses: PropTypes.shape({
@@ -36,5 +44,9 @@ PlacesList.propTypes = {
     cardClass: PropTypes.string,
     imgClass: PropTypes.string,
   }),
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  onMouseEnter: PropTypes.func.isRequired
 };
+
+export {PlacesList};
+export default connect(mapStateToProps, mapDispatchToProps)(PlacesList);
