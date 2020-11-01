@@ -3,29 +3,17 @@ import PropTypes from "prop-types";
 import Header from "../header/header";
 import PlacesList from "../places-list/places-list";
 import Map from "../map/map";
-import Locations from "../locations/locations";
+import Menu from "../menu/menu";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
 
 class Main extends PureComponent {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    const {city, offersInCity, onGetOffers} = this.props;
-    this.city = city;
-    this.onGetOffers = onGetOffers;
-  }
-
-  componentDidUpdate() {
-    this.onGetOffers(this.city);
-  }
-
   render() {
-    const {count, offers, locations} = this.props;
+    const {city, offers} = this.props;
     const coord = offers.map((offer) => offer.coord);
-    const cities = locations.map((location) => location.title);
     const mapStyle = {
       display: `flex`,
       height: `100%`,
@@ -43,13 +31,13 @@ class Main extends PureComponent {
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
           <div className="tabs">
-            <Locations cities={cities} />
+            <Menu />
           </div>
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{count} places to stay in Amsterdam</b>
+                <b className="places__found">{offers.length} places to stay in {city}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex="0">
@@ -82,21 +70,14 @@ class Main extends PureComponent {
 
 const mapStateToProps = (state) => ({
   city: state.city,
-  offersInCity: state.offersInCity,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onGetOffers(city) {
-    dispatch(ActionCreator.getOffers(city));
-  },
+  offers: state.offers,
 });
 
 Main.propTypes = {
-  count: PropTypes.number.isRequired,
+  city: PropTypes.string.isRequired,
   offers: PropTypes.array.isRequired,
-  locations: PropTypes.array.isRequired,
 };
 
 export {Main};
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps)(Main);
 

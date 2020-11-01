@@ -3,14 +3,9 @@ import ReactDOM from "react-dom";
 import App from "./components/app/app";
 import offers from "./mocks/offers";
 import reviews from "./mocks/reviews";
-import locations from "./mocks/locations";
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import {reducer} from "./store/reducer";
-
-const places = {
-  COUNT: 312
-};
 
 const store = createStore(
     reducer,
@@ -19,7 +14,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-      <App count={places.COUNT} offers={offers} reviews={reviews} locations={locations} />
+      <App offers={offers} reviews={reviews} />
     </Provider>,
     document.querySelector(`#root`)
 

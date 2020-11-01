@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
+import {cities} from "../../const";
 
 
-const Locations = (props) => {
-  const {cities, onCityChange, city} = props;
+const Menu = (props) => {
+  const {onCityChange, city} = props;
   return (
     <section className="locations container">
       <ul className="locations__list tabs__list">
@@ -34,16 +35,16 @@ const mapDispatchToProps = (dispatch) => ({
     if (link !== null) {
       const {dataset} = link;
       dispatch(ActionCreator.changeCity(dataset.location));
+      dispatch(ActionCreator.getOffers(dataset.location));
     }
     return false;
   },
 });
 
-Locations.propTypes = {
-  cities: PropTypes.array.isRequired,
+Menu.propTypes = {
   city: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
 };
 
-export {Locations};
-export default connect(mapStateToProps, mapDispatchToProps)(Locations);
+export {Menu};
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
