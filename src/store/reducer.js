@@ -1,11 +1,11 @@
 import {extend} from "../utils";
 import ActionType from "./constants";
-import {cities} from "../const";
+import {CITIES} from "../const";
 import {getOffersByCity} from "../city";
 
 const initialState = {
-  city: cities[0],
-  offers: getOffersByCity(cities[0])
+  city: CITIES[0],
+  offers: getOffersByCity(CITIES[0])
 };
 
 const reducer = (state = initialState, action) => {

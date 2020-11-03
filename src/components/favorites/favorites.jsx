@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header";
-import {cities} from "../../const";
+import {CITIES} from "../../const";
 import FavoritesLocation from "../favorites-location/favorites-location";
 
 
 const Favorites = (props) => {
 
   const {offers} = props;
-  const favoriteCities = cities.slice(0, 2);
+  const favoriteCities = CITIES.slice(0, 2);
   return (
     <div className="page">
       <Header />

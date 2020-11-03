@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
-import {cities} from "../../const";
+import {CITIES} from "../../const";
 
 
 const Menu = (props) => {
@@ -10,11 +10,12 @@ const Menu = (props) => {
   return (
     <section className="locations container">
       <ul className="locations__list tabs__list">
-        {cities.map((it) => (
+        {CITIES.map((it) => (
           <li key={it} className="locations__item">
-            <a className={`locations__item-link tabs__item ${city === it ? `tabs__item--active` : ``}`} data-location={`${it}`} href="#" onClick={(evt) => {
-              onCityChange(evt);
-            }}>
+            <a className={`locations__item-link tabs__item ${city === it ? `tabs__item--active` : ``}`}
+              data-location={`${it}`} href="#" onClick={(evt) => {
+                onCityChange(evt);
+              }}>
               <span>{`${it}`}</span>
             </a>
           </li>
