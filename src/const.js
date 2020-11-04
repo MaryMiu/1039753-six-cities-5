@@ -12,6 +12,6 @@ export const Sort = {
   TOP_RATED: `TOP_RATED`
 };
 
-export const cities = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
+export const CITIES = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 
 

@@ -3,7 +3,7 @@ import {
   getRandomFloatingPointNumber
 } from "../utils.js";
 import {
-  OfferType, cities
+  OfferType, CITIES
 } from "../const";
 
 const AVATAR_URL = `https://api.adorable.io/avatars/`;
@@ -132,8 +132,7 @@ const getCoord = () => {
 };
 
 const getCity = () => {
-  let city = cities[getRandomInteger(0, cities.length - 1)];
-  return city;
+  return CITIES[getRandomInteger(0, CITIES.length - 1)];
 };
 
 const generateOffer = () => {

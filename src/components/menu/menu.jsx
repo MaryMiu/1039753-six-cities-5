@@ -2,20 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
-import {cities} from "../../const";
+import {CITIES} from "../../const";
 
 
 const Menu = (props) => {
-  const {onCityChange, city} = props;
+  const {onCityChange, activeCity} = props;
   return (
     <section className="locations container">
       <ul className="locations__list tabs__list">
-        {cities.map((it) => (
-          <li key={it} className="locations__item">
-            <a className={`locations__item-link tabs__item ${city === it ? `tabs__item--active` : ``}`} data-location={`${it}`} href="#" onClick={(evt) => {
-              onCityChange(evt);
-            }}>
-              <span>{`${it}`}</span>
+        {CITIES.map((city) => (
+          <li key={city} className="locations__item">
+            <a className={`locations__item-link tabs__item ${activeCity === city ? `tabs__item--active` : ``}`}
+              data-location={`${city}`} href="#" onClick={(evt) => {
+                onCityChange(evt, city);
+              }}>
+              <span>{`${city}`}</span>
             </a>
           </li>
         ))}
@@ -25,24 +26,18 @@ const Menu = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  city: state.city,
+  activeCity: state.activeCity,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCityChange(evt) {
-    const link = evt.target.closest(`.locations__item-link`);
+  onCityChange(evt, activeCity) {
     evt.preventDefault();
-    if (link !== null) {
-      const {dataset} = link;
-      dispatch(ActionCreator.changeCity(dataset.location));
-      dispatch(ActionCreator.getOffers(dataset.location));
-    }
-    return false;
+    dispatch(ActionCreator.changeCity(activeCity));
   },
 });
 
 Menu.propTypes = {
-  city: PropTypes.string.isRequired,
+  activeCity: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
 };
 

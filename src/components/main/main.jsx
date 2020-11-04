@@ -13,7 +13,8 @@ class Main extends PureComponent {
   }
 
   render() {
-    const {city, offers} = this.props;
+    const {activeCity, offers} = this.props;
+    const offersByCity = offers.filter((offer) => offer.city === activeCity);
     const mapStyle = {
       display: `flex`,
       height: `100%`,
@@ -37,13 +38,13 @@ class Main extends PureComponent {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offers.length} places to stay in {city}</b>
+                <b className="places__found">{offersByCity.length} places to stay in {activeCity}</b>
                 <Sortlist />
-                <PlacesList offers={offers} currentClasses={currentClasses} />
+                <PlacesList offers={offersByCity} currentClasses={currentClasses} />
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <Map offers={offers} mapStyle={mapStyle} />
+                  <Map offers={offersByCity} mapStyle={mapStyle} />
                 </section>
               </div>
             </div>
@@ -55,12 +56,12 @@ class Main extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  city: state.city,
+  activeCity: state.activeCity,
   offers: state.offers,
 });
 
 Main.propTypes = {
-  city: PropTypes.string.isRequired,
+  activeCity: PropTypes.string.isRequired,
   offers: PropTypes.array.isRequired,
 };
 
