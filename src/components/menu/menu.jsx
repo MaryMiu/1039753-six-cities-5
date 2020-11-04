@@ -14,7 +14,7 @@ const Menu = (props) => {
           <li key={it} className="locations__item">
             <a className={`locations__item-link tabs__item ${city === it ? `tabs__item--active` : ``}`}
               data-location={`${it}`} href="#" onClick={(evt) => {
-                onCityChange(evt);
+                onCityChange(evt, it);
               }}>
               <span>{`${it}`}</span>
             </a>
@@ -30,15 +30,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCityChange(evt) {
-    const link = evt.target.closest(`.locations__item-link`);
+  onCityChange(evt, city) {
     evt.preventDefault();
-    if (link !== null) {
-      const {dataset} = link;
-      dispatch(ActionCreator.changeCity(dataset.location));
-      dispatch(ActionCreator.getOffers(dataset.location));
-    }
-    return false;
+    dispatch(ActionCreator.changeCity(city));
+    dispatch(ActionCreator.getOffers(city));
   },
 });
 

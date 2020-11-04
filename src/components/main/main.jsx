@@ -24,6 +24,7 @@ class Main extends PureComponent {
       cardClass: `cities__place-card`,
       imgClass: `cities__image-wrapper`,
     };
+    const offersByCity = offers.filter((offer) => offer.city === city);
 
     return (
       <div className="page page--gray page--main">
@@ -53,7 +54,7 @@ class Main extends PureComponent {
                     <li className="places__option" tabIndex="0">Top rated first</li>
                   </ul>
                 </form>
-                <PlacesList offers={offers} currentClasses={currentClasses} />
+                <PlacesList offers={offersByCity} currentClasses={currentClasses} />
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
