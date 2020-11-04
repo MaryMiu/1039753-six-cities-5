@@ -8,6 +8,7 @@ import {OfferType} from "../../const";
 import {
   formatFloatingPointNumberToPercent
 } from "../../utils.js";
+import {connect} from "react-redux";
 
 const Room = (props) => {
   const {reviews, offers} = props;
@@ -122,7 +123,9 @@ const Room = (props) => {
   );
 };
 
-export default Room;
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+});
 
 Room.propTypes = {
   offers: PropTypes.array.isRequired,
@@ -142,3 +145,5 @@ Room.propTypes = {
   reviews: PropTypes.array.isRequired
 };
 
+export {Room};
+export default connect(mapStateToProps)(Room);

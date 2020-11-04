@@ -6,17 +6,17 @@ import {CITIES} from "../../const";
 
 
 const Menu = (props) => {
-  const {onCityChange, city} = props;
+  const {onCityChange, activeCity} = props;
   return (
     <section className="locations container">
       <ul className="locations__list tabs__list">
-        {CITIES.map((it) => (
-          <li key={it} className="locations__item">
-            <a className={`locations__item-link tabs__item ${city === it ? `tabs__item--active` : ``}`}
-              data-location={`${it}`} href="#" onClick={(evt) => {
-                onCityChange(evt, it);
+        {CITIES.map((city) => (
+          <li key={city} className="locations__item">
+            <a className={`locations__item-link tabs__item ${activeCity === city ? `tabs__item--active` : ``}`}
+              data-location={`${city}`} href="#" onClick={(evt) => {
+                onCityChange(evt, city);
               }}>
-              <span>{`${it}`}</span>
+              <span>{`${city}`}</span>
             </a>
           </li>
         ))}
@@ -26,19 +26,18 @@ const Menu = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  city: state.city,
+  activeCity: state.activeCity,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCityChange(evt, city) {
+  onCityChange(evt, activeCity) {
     evt.preventDefault();
-    dispatch(ActionCreator.changeCity(city));
-    dispatch(ActionCreator.getOffers(city));
+    dispatch(ActionCreator.changeCity(activeCity));
   },
 });
 
 Menu.propTypes = {
-  city: PropTypes.string.isRequired,
+  activeCity: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
 };
 
