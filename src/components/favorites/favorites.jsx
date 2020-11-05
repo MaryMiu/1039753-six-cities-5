@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header";
-import {Сities} from "../../const";
+import {connect} from "react-redux";
+import {CITIES} from "../../const";
 import FavoritesLocation from "../favorites-location/favorites-location";
 
 
 const Favorites = (props) => {
 
   const {offers} = props;
-  const cities = Object.values(Сities).slice(0, 2);
+  const favoriteCities = CITIES.slice(0, 2);
   return (
     <div className="page">
       <Header />
@@ -17,9 +18,9 @@ const Favorites = (props) => {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              {cities.map((city) => {
+              {favoriteCities.map((favoriteCity) => {
                 return (
-                  <FavoritesLocation key={city} city={city} offers={offers} />
+                  <FavoritesLocation key={favoriteCity} city={favoriteCity} offers={offers} />
                 );
               })}
             </ul>
@@ -35,8 +36,13 @@ const Favorites = (props) => {
   );
 };
 
-export default Favorites;
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+});
 
 Favorites.propTypes = {
   offers: PropTypes.array.isRequired
 };
+
+export {Favorites};
+export default connect(mapStateToProps)(Favorites);

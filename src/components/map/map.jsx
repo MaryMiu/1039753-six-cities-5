@@ -7,10 +7,11 @@ import "../../../node_modules/leaflet/dist/leaflet.css";
 export default class Map extends PureComponent {
   constructor(props) {
     super(props);
-    this.coord = props.coord;
+    this.map = null;
   }
 
-  componentDidMount() {
+  createMap() {
+    const {coord} = this.props;
     const city = [52.38333, 4.9];
 
     const icon = leaflet.icon({
@@ -35,13 +36,28 @@ export default class Map extends PureComponent {
       })
       .addTo(map);
 
-    const mapCoords = this.coord;
+    map.fitBounds(coord);
 
-    mapCoords.forEach((offerCoord) => {
+    coord.forEach((offerCoord) => {
       leaflet
-      .marker(offerCoord, {icon})
-      .addTo(map);
+        .marker(offerCoord, {icon})
+        .addTo(map);
     });
+
+    this.map = map;
+  }
+
+  componentDidMount() {
+    this.createMap();
+  }
+
+  componentDidUpdate() {
+    if (this.map !== null) {
+      this.map.remove();
+      this.map = null;
+
+      this.createMap();
+    }
   }
 
   render() {

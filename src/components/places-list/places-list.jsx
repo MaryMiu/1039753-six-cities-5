@@ -8,6 +8,7 @@ export default class PlacesList extends PureComponent {
     this.state = {
       active: null
     };
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
 
   render() {
@@ -17,15 +18,15 @@ export default class PlacesList extends PureComponent {
       <div className={`${listClass} places__list`}>
         {offers.map((offer) => {
           return (
-            <PlaceCard key={offer.id} offer={offer} currentClasses={currentClasses} onMouseEnter={() => this.handleClick(offer)} />
+            <PlaceCard key={offer.id} offer={offer} currentClasses={currentClasses} onMouseEnter={this.handleMouseEnter} />
           );
         })}
       </div>
     );
   }
 
-  handleClick(offer) {
-    this.setState({active: offer.id});
+  handleMouseEnter(id) {
+    this.setState({active: id});
   }
 }
 

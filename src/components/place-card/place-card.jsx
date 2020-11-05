@@ -7,15 +7,15 @@ import {
 } from "../../utils.js";
 
 const PlaceCard = (props) => {
-  const {currentClasses, offer} = props;
-  const {photo, title, premium, type, rating, price} = offer;
+  const {currentClasses, offer, onMouseEnter} = props;
+  const {photo, title, premium, type, rating, price, id} = offer;
   const {cardClass, imgClass} = currentClasses;
 
   return (
-    <article className={`${cardClass} place-card`} onMouseEnter={() => props.onMouseEnter()} >
+    <article className={`${cardClass} place-card`} onMouseEnter={() => onMouseEnter(id)} >
       {premium ? <div className="place-card__mark"><span>Premium</span></div> : ``}
       <div className={`${imgClass} place-card__image-wrapper`}>
-        <Link to={`/offer/${offer.id}`}>
+        <Link to={`/offer/${id}`}>
           <img className="place-card__image" src={`img/${photo[0]}`} width="260" height="200" alt="Place image" />
         </Link>
       </div>
@@ -39,7 +39,7 @@ const PlaceCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`/offer/${offer.id}`}>{title}</Link>
+          <Link to={`/offer/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

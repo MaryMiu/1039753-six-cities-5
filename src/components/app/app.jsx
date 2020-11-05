@@ -8,22 +8,22 @@ import Room from "../room/room";
 
 const App = (props) => {
 
-  const {count, offers, reviews} = props;
+  const {reviews} = props;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main count={count} offers={offers} />
+          <Main />
         </Route>
         <Route exact path="/login">
           <SignIn />
         </Route>
         <Route exact path="/favorites">
-          <Favorites offers={offers} />
+          <Favorites />
         </Route>
         <Route exact path="/offer/:id">
-          <Room offers={offers} reviews={reviews} />
+          <Room reviews={reviews} />
         </Route>
       </Switch>
     </BrowserRouter>
@@ -32,8 +32,6 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  count: PropTypes.number.isRequired,
-  offers: PropTypes.array.isRequired,
   reviews: PropTypes.array.isRequired
 };
 

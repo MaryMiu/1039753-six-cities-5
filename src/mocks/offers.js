@@ -3,7 +3,7 @@ import {
   getRandomFloatingPointNumber
 } from "../utils.js";
 import {
-  OfferType
+  OfferType, CITIES
 } from "../const";
 
 const AVATAR_URL = `https://api.adorable.io/avatars/`;
@@ -16,7 +16,7 @@ const MAX_GUESTS_COUNT = 10;
 const MIN_PRICE = 20;
 const MAX_PRICE = 500;
 const MAX_AVATAR_ID = 200;
-const OFFERS_COUNT = 4;
+const OFFERS_COUNT = 16;
 
 const generateId = () => Date.now() + parseInt(Math.random() * 10000, 10);
 
@@ -123,23 +123,23 @@ const generateName = () => {
   return names[getRandomInteger(0, names.length - 1)];
 };
 
-const COORDS = [
-  [52.3909553943508, 4.85309666406198],
-  [52.369553943508, 4.85309666406198],
-  [52.3909553943508, 4.929309666406198],
-  [52.3809553943508, 4.939309666406198]
-];
+const getCoord = () => {
+  let latitude = `52.3` + getRandomInteger(0, 9);
+  let longitude = `4.8` + getRandomInteger(0, 9);
+  const currentCoord = [Number(latitude), Number(longitude)];
 
-const getCoord = (coords) => {
-  const currentCoord = coords[0];
-  coords.shift();
   return currentCoord;
+};
+
+const getCity = () => {
+  return CITIES[getRandomInteger(0, CITIES.length - 1)];
 };
 
 const generateOffer = () => {
   return {
     id: generateId(),
-    coord: getCoord(COORDS),
+    city: getCity(),
+    coord: getCoord(),
     photo: generatePhoto(),
     title: generateTitle(),
     description: generateDescription(),
@@ -158,8 +158,8 @@ const generateOffer = () => {
   };
 };
 
-const generateOffers = () => {
-  return new Array(OFFERS_COUNT).fill().map(generateOffer);
+const generateOffers = (count = OFFERS_COUNT) => {
+  return new Array(count).fill().map(generateOffer);
 };
 
 export default generateOffers();
