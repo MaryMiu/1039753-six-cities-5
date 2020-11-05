@@ -6,15 +6,32 @@ import Sortlist from "../sortlist/sortlist";
 import Map from "../map/map";
 import Menu from "../menu/menu";
 import {connect} from "react-redux";
-
+import {Sort} from "../../const";
+import {sortRatingDown, sortPriceLowToHight, sortPriceHightToLow} from "../../utils";
 class Main extends PureComponent {
   constructor(props) {
     super(props);
   }
 
+  sortOffers(offers, activeSortType) {
+    switch (activeSortType) {
+      case (Sort.POPULAR):
+        return offers;
+      case (Sort.LOW_TO_HIGH):
+        return offers.sort(sortPriceLowToHight);
+      case (Sort.HIGH_TO_LOW):
+        return offers.sort(sortPriceHightToLow);
+      case (Sort.TOP_RATED):
+        return offers.sort(sortRatingDown);
+    }
+    return offers;
+  }
+
   render() {
-    const {activeCity, offers} = this.props;
-    const offersByCity = offers.filter((offer) => offer.city === activeCity);
+    const {activeCity, offers, activeSortType} = this.props;
+    const filtredOffers = offers.filter((offer) => offer.city === activeCity).slice();
+    const sortedOffers = this.sortOffers(filtredOffers, activeSortType);
+
     const mapStyle = {
       display: `flex`,
       height: `100%`,
@@ -38,13 +55,13 @@ class Main extends PureComponent {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offersByCity.length} places to stay in {activeCity}</b>
+                <b className="places__found">{sortedOffers.length} places to stay in {activeCity}</b>
                 <Sortlist />
-                <PlacesList offers={offersByCity} currentClasses={currentClasses} />
+                <PlacesList offers={sortedOffers} currentClasses={currentClasses} />
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <Map offers={offersByCity} mapStyle={mapStyle} />
+                  <Map offers={sortedOffers} mapStyle={mapStyle} />
                 </section>
               </div>
             </div>
@@ -58,11 +75,13 @@ class Main extends PureComponent {
 const mapStateToProps = (state) => ({
   activeCity: state.activeCity,
   offers: state.offers,
+  activeSortType: state.activeSortType,
 });
 
 Main.propTypes = {
   activeCity: PropTypes.string.isRequired,
   offers: PropTypes.array.isRequired,
+  activeSortType: PropTypes.string.isRequired,
 };
 
 export {Main};
