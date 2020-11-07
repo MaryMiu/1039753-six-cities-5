@@ -2,19 +2,36 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header";
 import PlacesList from "../places-list/places-list";
+import Sortlist from "../sortlist/sortlist";
 import Map from "../map/map";
 import Menu from "../menu/menu";
 import {connect} from "react-redux";
-
+import {Sort} from "../../const";
+import {sortRatingDown, sortPriceLowToHight, sortPriceHightToLow} from "../../utils";
 class Main extends PureComponent {
   constructor(props) {
     super(props);
   }
 
+  sortOffers(offers, activeSortType) {
+    switch (activeSortType) {
+      case (Sort.POPULAR):
+        return offers;
+      case (Sort.LOW_TO_HIGH):
+        return offers.sort(sortPriceLowToHight);
+      case (Sort.HIGH_TO_LOW):
+        return offers.sort(sortPriceHightToLow);
+      case (Sort.TOP_RATED):
+        return offers.sort(sortRatingDown);
+    }
+    return offers;
+  }
+
   render() {
-    const {activeCity, offers} = this.props;
-    const offersByCity = offers.filter((offer) => offer.city === activeCity);
-    const coord = offersByCity.map((offer) => offer.coord);
+    const {activeCity, offers, activeSortType} = this.props;
+    const filtredOffers = offers.filter((offer) => offer.city === activeCity).slice();
+    const sortedOffers = this.sortOffers(filtredOffers, activeSortType);
+
     const mapStyle = {
       display: `flex`,
       height: `100%`,
@@ -38,27 +55,13 @@ class Main extends PureComponent {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offersByCity.length} places to stay in {activeCity}</b>
-                <form className="places__sorting" action="#" method="get">
-                  <span className="places__sorting-caption">Sort by</span>
-                  <span className="places__sorting-type" tabIndex="0">
-                  Popular
-                    <svg className="places__sorting-arrow" width="7" height="4">
-                      <use xlinkHref="#icon-arrow-select"></use>
-                    </svg>
-                  </span>
-                  <ul className="places__options places__options--custom places__options--opened">
-                    <li className="places__option places__option--active" tabIndex="0">Popular</li>
-                    <li className="places__option" tabIndex="0">Price: low to high</li>
-                    <li className="places__option" tabIndex="0">Price: high to low</li>
-                    <li className="places__option" tabIndex="0">Top rated first</li>
-                  </ul>
-                </form>
-                <PlacesList offers={offersByCity} currentClasses={currentClasses} />
+                <b className="places__found">{sortedOffers.length} places to stay in {activeCity}</b>
+                <Sortlist />
+                <PlacesList offers={sortedOffers} currentClasses={currentClasses} />
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <Map coord={coord} mapStyle={mapStyle} />
+                  <Map offers={sortedOffers} mapStyle={mapStyle} />
                 </section>
               </div>
             </div>
@@ -72,11 +75,13 @@ class Main extends PureComponent {
 const mapStateToProps = (state) => ({
   activeCity: state.activeCity,
   offers: state.offers,
+  activeSortType: state.activeSortType,
 });
 
 Main.propTypes = {
   activeCity: PropTypes.string.isRequired,
   offers: PropTypes.array.isRequired,
+  activeSortType: PropTypes.string.isRequired,
 };
 
 export {Main};

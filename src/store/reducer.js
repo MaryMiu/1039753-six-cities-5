@@ -1,11 +1,13 @@
 import {extend} from "../utils";
 import ActionType from "./constants";
-import {CITIES} from "../const";
+import {Sort, CITIES} from "../const";
 import offers from "../mocks/offers";
 
 const initialState = {
   activeCity: CITIES[0],
-  offers
+  offers,
+  activeOffer: {},
+  activeSortType: Sort.POPULAR
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,7 +17,16 @@ const reducer = (state = initialState, action) => {
         activeCity: action.payload
       });
     case ActionType.RESET_CITY:
-      return extend({}, initialState);
+      return extend({}, initialState
+      );
+    case ActionType.GET_ACTIVE_OFFER:
+      return extend(state, {
+        activeOffer: action.payload
+      });
+    case ActionType.GET_ACTIVE_SORT:
+      return extend(state, {
+        activeSortType: action.payload
+      });
   }
 
   return state;

@@ -1,25 +1,31 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import leaflet from "leaflet";
 
 import "../../../node_modules/leaflet/dist/leaflet.css";
 
-export default class Map extends PureComponent {
+class Map extends PureComponent {
   constructor(props) {
     super(props);
     this.map = null;
   }
 
   createMap() {
-    const {coord} = this.props;
+    const {offers, activeOffer} = this.props;
+    const coord = offers.map((offer) => offer.coord);
     const city = [52.38333, 4.9];
 
-    const icon = leaflet.icon({
-      iconUrl: `img/pin.svg`,
-      iconSize: [30, 30]
+    const MyIcon = leaflet.Icon.extend({
+      options: {
+        iconSize: [30, 30]
+      }
     });
 
-    const zoom = 12;
+    const defaultIcon = new MyIcon({iconUrl: `img/pin.svg`});
+    const activeIcon = new MyIcon({iconUrl: `img/pin-active.svg`});
+
+    const zoom = 11;
 
     const map = leaflet.map(`map`, {
       center: city,
@@ -36,12 +42,16 @@ export default class Map extends PureComponent {
       })
       .addTo(map);
 
-    map.fitBounds(coord);
-
     coord.forEach((offerCoord) => {
-      leaflet
-        .marker(offerCoord, {icon})
+      if (offerCoord !== activeOffer.coord) {
+        leaflet
+        .marker(offerCoord, {icon: defaultIcon})
         .addTo(map);
+      } else {
+        leaflet
+        .marker(offerCoord, {icon: activeIcon})
+        .addTo(map);
+      }
     });
 
     this.map = map;
@@ -53,6 +63,7 @@ export default class Map extends PureComponent {
 
   componentDidUpdate() {
     if (this.map !== null) {
+      this.map.off();
       this.map.remove();
       this.map = null;
 
@@ -68,7 +79,15 @@ export default class Map extends PureComponent {
   }
 }
 
+const mapStateToProps = (state) => ({
+  activeOffer: state.activeOffer,
+});
+
 Map.propTypes = {
-  coord: PropTypes.array.isRequired,
+  activeOffer: PropTypes.object.isRequired,
+  offers: PropTypes.array.isRequired,
   mapStyle: PropTypes.object.isRequired
 };
+
+export {Map};
+export default connect(mapStateToProps)(Map);

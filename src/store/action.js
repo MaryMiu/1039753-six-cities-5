@@ -7,5 +7,13 @@ export const ActionCreator = {
   }),
   resetCity: () => ({
     type: ActionType.RESET_CITY,
+  }),
+  getActiveOffer: (offer) => ({
+    type: ActionType.GET_ACTIVE_OFFER,
+    payload: offer,
+  }),
+  getActiveSort: (type) => ({
+    type: ActionType.GET_ACTIVE_SORT,
+    payload: type,
   })
 };

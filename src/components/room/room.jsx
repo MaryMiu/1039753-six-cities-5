@@ -15,7 +15,6 @@ const Room = (props) => {
   const {id, photo, title, description, premium, type, rating, price, bedroomsCount, guestsCount, stuff, owner} = offers[0];
   const {avatar, name, badge} = owner;
   const offersNear = offers.slice(0, 3);
-  const coord = offersNear.map((offer) => offer.coord);
   const mapStyle = {
     display: `flex`,
     height: `100%`,
@@ -109,7 +108,7 @@ const Room = (props) => {
             </div>
           </div>
           <section className="property__map map">
-            <Map coord={coord} mapStyle={mapStyle} />
+            <Map offers={offersNear} mapStyle={mapStyle} />
           </section>
         </section>
         <div className="container">

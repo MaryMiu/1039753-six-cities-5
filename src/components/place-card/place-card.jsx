@@ -12,7 +12,7 @@ const PlaceCard = (props) => {
   const {cardClass, imgClass} = currentClasses;
 
   return (
-    <article className={`${cardClass} place-card`} onMouseEnter={() => onMouseEnter(id)} >
+    <article className={`${cardClass} place-card`} onMouseEnter={() => onMouseEnter(offer)} >
       {premium ? <div className="place-card__mark"><span>Premium</span></div> : ``}
       <div className={`${imgClass} place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>
