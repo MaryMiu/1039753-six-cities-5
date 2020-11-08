@@ -25,6 +25,11 @@ const Menu = (props) => {
   );
 };
 
+Menu.propTypes = {
+  activeCity: PropTypes.string.isRequired,
+  onCityChange: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = (state) => ({
   activeCity: state.activeCity,
 });
@@ -35,11 +40,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.changeCity(activeCity));
   },
 });
-
-Menu.propTypes = {
-  activeCity: PropTypes.string.isRequired,
-  onCityChange: PropTypes.func.isRequired,
-};
 
 export {Menu};
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

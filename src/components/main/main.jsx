@@ -1,6 +1,9 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header";
+import withPlace from "../../hocs/with-place/with-place";
+import withCollapse from "../../hocs/with-collapse/with-collapse";
+import withMap from "../../hocs/with-map/with-map";
 import PlacesList from "../places-list/places-list";
 import Sortlist from "../sortlist/sortlist";
 import Map from "../map/map";
@@ -8,6 +11,11 @@ import Menu from "../menu/menu";
 import {connect} from "react-redux";
 import {Sort} from "../../const";
 import {sortRatingDown, sortPriceLowToHight, sortPriceHightToLow} from "../../utils";
+
+const SortListWrapped = withCollapse(Sortlist);
+const PlacesListWrapped = withPlace(PlacesList);
+const MapWrapped = withMap(Map);
+
 class Main extends PureComponent {
   constructor(props) {
     super(props);
@@ -56,12 +64,12 @@ class Main extends PureComponent {
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
                 <b className="places__found">{sortedOffers.length} places to stay in {activeCity}</b>
-                <Sortlist />
-                <PlacesList offers={sortedOffers} currentClasses={currentClasses} />
+                <SortListWrapped />
+                <PlacesListWrapped offers={sortedOffers} currentClasses={currentClasses} />
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map">
-                  <Map offers={sortedOffers} mapStyle={mapStyle} />
+                  <MapWrapped offers={sortedOffers} mapStyle={mapStyle} />
                 </section>
               </div>
             </div>
@@ -72,17 +80,17 @@ class Main extends PureComponent {
   }
 }
 
-const mapStateToProps = (state) => ({
-  activeCity: state.activeCity,
-  offers: state.offers,
-  activeSortType: state.activeSortType,
-});
-
 Main.propTypes = {
   activeCity: PropTypes.string.isRequired,
   offers: PropTypes.array.isRequired,
   activeSortType: PropTypes.string.isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  activeCity: state.activeCity,
+  offers: state.offers,
+  activeSortType: state.activeSortType,
+});
 
 export {Main};
 export default connect(mapStateToProps)(Main);

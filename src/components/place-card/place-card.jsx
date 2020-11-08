@@ -47,8 +47,6 @@ const PlaceCard = (props) => {
   );
 };
 
-export default PlaceCard;
-
 PlaceCard.propTypes = {
   onMouseEnter: PropTypes.func.isRequired,
   currentClasses: PropTypes.shape({
@@ -70,3 +68,6 @@ PlaceCard.propTypes = {
     stuff: PropTypes.array.isRequired,
   })
 };
+
+export default React.memo(PlaceCard);
+
