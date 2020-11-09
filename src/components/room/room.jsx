@@ -3,12 +3,15 @@ import PropTypes from "prop-types";
 import Header from "../header/header";
 import OfferReviews from "../offer-reviews/offer-reviews";
 import PlacesList from "../places-list/places-list";
+import withMap from "../../hocs/with-map/with-map";
 import Map from "../map/map";
 import {OfferType} from "../../const";
 import {
   formatFloatingPointNumberToPercent
 } from "../../utils.js";
 import {connect} from "react-redux";
+
+const MapWrapped = withMap(Map);
 
 const Room = (props) => {
   const {reviews, offers} = props;
@@ -108,7 +111,7 @@ const Room = (props) => {
             </div>
           </div>
           <section className="property__map map">
-            <Map offers={offersNear} mapStyle={mapStyle} />
+            <MapWrapped offers={offersNear} mapStyle={mapStyle} />
           </section>
         </section>
         <div className="container">
@@ -121,10 +124,6 @@ const Room = (props) => {
     </div>
   );
 };
-
-const mapStateToProps = (state) => ({
-  offers: state.offers,
-});
 
 Room.propTypes = {
   offers: PropTypes.array.isRequired,
@@ -143,6 +142,10 @@ Room.propTypes = {
   }),
   reviews: PropTypes.array.isRequired
 };
+
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+});
 
 export {Room};
 export default connect(mapStateToProps)(Room);

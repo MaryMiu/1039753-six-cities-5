@@ -36,13 +36,13 @@ const Favorites = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  offers: state.offers,
-});
-
 Favorites.propTypes = {
   offers: PropTypes.array.isRequired
 };
+
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+});
 
 export {Favorites};
 export default connect(mapStateToProps)(Favorites);

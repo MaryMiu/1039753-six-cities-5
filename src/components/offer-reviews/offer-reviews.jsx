@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import OfferReview from "../offer-review/offer-review";
+import withReview from "../../hocs/with-review/with-review";
 import ReviewsForm from "../reviews-form/reviews-form";
 
+const ReviewsFormWrapped = withReview(ReviewsForm);
 
 const OfferReviews = (props) => {
 
@@ -15,7 +17,7 @@ const OfferReviews = (props) => {
           <OfferReview key={review.id} review={review} />
         ))}
       </ul>
-      <ReviewsForm />
+      <ReviewsFormWrapped />
     </section>
   );
 };

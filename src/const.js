@@ -6,10 +6,10 @@ export const OfferType = {
 };
 
 export const Sort = {
-  POPULAR: `POPULAR`,
-  LOW_TO_HIGH: `LOW_TO_HIGH`,
-  HIGH_TO_LOW: `HIGH_TO_LOW`,
-  TOP_RATED: `TOP_RATED`
+  POPULAR: `Popular`,
+  LOW_TO_HIGH: `Price: low to high`,
+  HIGH_TO_LOW: `Price: high to low`,
+  TOP_RATED: `Top rated first`
 };
 
 export const CITIES = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
