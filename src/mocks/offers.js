@@ -16,7 +16,7 @@ const MAX_GUESTS_COUNT = 10;
 const MIN_PRICE = 20;
 const MAX_PRICE = 500;
 const MAX_AVATAR_ID = 200;
-const OFFERS_COUNT = 24;
+const OFFERS_COUNT = 10;
 
 const generateId = () => Date.now() + parseInt(Math.random() * 10000, 10);
 

@@ -8,6 +8,7 @@ import PlacesList from "../places-list/places-list";
 import Sortlist from "../sortlist/sortlist";
 import Map from "../map/map";
 import Menu from "../menu/menu";
+import Empty from "../empty/empty";
 import {connect} from "react-redux";
 import {Sort} from "../../const";
 import {sortRatingDown, sortPriceLowToHight, sortPriceHightToLow} from "../../utils";
@@ -52,27 +53,31 @@ class Main extends PureComponent {
     };
 
     return (
-      <div className="page page--gray page--main">
+      <div className={`page page--gray page--main ${filtredOffers.length === 0 ? `page__main--index-empty` : ``}`}>
         <Header />
-        <main className="page__main page__main--index">
+        <main className={`page__main page__main--index ${filtredOffers.length === 0 ? `cities__places-container--empty` : ``}`}>
           <h1 className="visually-hidden">Cities</h1>
           <div className="tabs">
             <Menu />
           </div>
           <div className="cities">
-            <div className="cities__places-container container">
-              <section className="cities__places places">
-                <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{sortedOffers.length} places to stay in {activeCity}</b>
-                <SortListWrapped />
-                <PlacesListWrapped offers={sortedOffers} currentClasses={currentClasses} />
-              </section>
-              <div className="cities__right-section">
-                <section className="cities__map map">
-                  <MapWrapped offers={sortedOffers} mapStyle={mapStyle} />
+            {filtredOffers.length > 0 ?
+              <div className="cities__places-container container">
+                <section className="cities__places places">
+                  <h2 className="visually-hidden">Places</h2>
+                  <b className="places__found">{sortedOffers.length} places to stay in {activeCity}</b>
+                  <SortListWrapped />
+                  <PlacesListWrapped offers={sortedOffers} currentClasses={currentClasses} />
                 </section>
+                <div className="cities__right-section">
+                  <section className="cities__map map">
+                    <MapWrapped offers={sortedOffers} mapStyle={mapStyle} />
+                  </section>
+                </div>
               </div>
-            </div>
+              :
+              <Empty />
+            }
           </div>
         </main>
       </div>
