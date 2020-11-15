@@ -5,6 +5,7 @@ import Main from "../main/main";
 import SignIn from "../signin/signin";
 import Favorites from "../favorites/favorites";
 import Room from "../room/room";
+import PrivateRoute from "../private-route/private-route";
 
 const App = (props) => {
 
@@ -19,9 +20,9 @@ const App = (props) => {
         <Route exact path="/login">
           <SignIn />
         </Route>
-        <Route exact path="/favorites">
+        <PrivateRoute exact path="/favorites">
           <Favorites />
-        </Route>
+        </PrivateRoute>
         <Route exact path="/offer/:id">
           <Room reviews={reviews} />
         </Route>
