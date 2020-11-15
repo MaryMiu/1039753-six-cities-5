@@ -2,6 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import leaflet from "leaflet";
+import {arrayEqual} from "../../utils";
 
 const withMap = (Component) => {
   class WithMap extends PureComponent {
@@ -26,8 +27,10 @@ const withMap = (Component) => {
 
     createMap() {
       const {offers, activeOffer} = this.props;
-      const coord = offers.map((offer) => offer.coord);
-      const city = [52.38333, 4.9];
+      const coord = offers.map((offer) => [offer.location.latitude, offer.location.longitude]);
+      const cityLatitude = offers[0].city.location.latitude;
+      const cityLongitude = offers[0].city.location.longitude;
+      const cityCoord = [cityLatitude, cityLongitude];
 
       const MyIcon = leaflet.Icon.extend({
         options: {
@@ -35,19 +38,25 @@ const withMap = (Component) => {
         }
       });
 
+      let activeOfferCoord = [];
+
+      if (Object.keys(activeOffer).length !== 0) {
+        activeOfferCoord = [activeOffer.location.latitude, activeOffer.location.longitude];
+      }
+
       const defaultIcon = new MyIcon({iconUrl: `img/pin.svg`});
       const activeIcon = new MyIcon({iconUrl: `img/pin-active.svg`});
 
       const zoom = 11;
 
       const map = leaflet.map(`map`, {
-        center: city,
+        center: cityCoord,
         zoom,
         zoomControl: false,
         marker: true
       });
 
-      map.setView(city, zoom);
+      map.setView(cityCoord, zoom);
 
       leaflet
         .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
@@ -56,14 +65,14 @@ const withMap = (Component) => {
         .addTo(map);
 
       coord.forEach((offerCoord) => {
-        if (offerCoord !== activeOffer.coord) {
+        if (!arrayEqual(offerCoord, activeOfferCoord)) {
           leaflet
-          .marker(offerCoord, {icon: defaultIcon})
-          .addTo(map);
+            .marker(offerCoord, {icon: defaultIcon})
+            .addTo(map);
         } else {
           leaflet
-          .marker(offerCoord, {icon: activeIcon})
-          .addTo(map);
+            .marker(activeOfferCoord, {icon: activeIcon})
+            .addTo(map);
         }
       });
 
@@ -80,8 +89,8 @@ const withMap = (Component) => {
     }
   }
 
-  const mapStateToProps = (state) => ({
-    activeOffer: state.activeOffer,
+  const mapStateToProps = ({PROCESS}) => ({
+    activeOffer: PROCESS.activeOffer,
   });
 
   WithMap.propTypes = {

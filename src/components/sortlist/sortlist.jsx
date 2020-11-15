@@ -33,8 +33,8 @@ Sortlist.propTypes = {
   onClickToggle: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  activeSortType: state.activeSortType,
+const mapStateToProps = ({PROCESS}) => ({
+  activeSortType: PROCESS.activeSortType,
 });
 
 const mapDispatchToProps = (dispatch) => ({

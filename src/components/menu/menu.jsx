@@ -30,8 +30,8 @@ Menu.propTypes = {
   onCityChange: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  activeCity: state.activeCity,
+const mapStateToProps = ({PROCESS}) => ({
+  activeCity: PROCESS.activeCity,
 });
 
 const mapDispatchToProps = (dispatch) => ({

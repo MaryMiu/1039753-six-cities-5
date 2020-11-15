@@ -25,8 +25,8 @@ const withPlace = (Component) => {
     }
   }
 
-  const mapStateToProps = (state) => ({
-    activeOffer: state.activeOffer,
+  const mapStateToProps = ({PROCESS}) => ({
+    activeOffer: PROCESS.activeOffer,
   });
 
   const mapDispatchToProps = (dispatch) => ({

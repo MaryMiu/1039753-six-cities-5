@@ -15,5 +15,13 @@ export const ActionCreator = {
   getActiveSort: (type) => ({
     type: ActionType.GET_ACTIVE_SORT,
     payload: type,
-  })
+  }),
+  requireAuthorization: (status) => ({
+    type: ActionType.REQUIRED_AUTHORIZATION,
+    payload: status,
+  }),
+  loadOffers: (offers) => ({
+    type: ActionType.LOAD_OFFERS,
+    payload: offers,
+  }),
 };
