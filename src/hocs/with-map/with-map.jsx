@@ -27,7 +27,7 @@ const withMap = (Component) => {
 
     createMap() {
       const {offers, activeOffer} = this.props;
-      const coord = offers.map((offer) => [offer.location.latitude, offer.location.longitude]);
+      const coords = offers.map((offer) => [offer.location.latitude, offer.location.longitude]);
       const cityLatitude = offers[0].city.location.latitude;
       const cityLongitude = offers[0].city.location.longitude;
       const cityCoord = [cityLatitude, cityLongitude];
@@ -64,7 +64,7 @@ const withMap = (Component) => {
         })
         .addTo(map);
 
-      coord.forEach((offerCoord) => {
+      coords.forEach((offerCoord) => {
         if (!arrayEqual(offerCoord, activeOfferCoord)) {
           leaflet
             .marker(offerCoord, {icon: defaultIcon})
