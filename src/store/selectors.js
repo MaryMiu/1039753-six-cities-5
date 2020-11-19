@@ -13,6 +13,10 @@ export const getActiveSortType = (state) => {
   return state[NameSpace.PROCESS].activeSortType;
 };
 
+export const getErrorMessage = (state) => {
+  return state[NameSpace.PROCESS].error;
+};
+
 export const getOffersByCity = createSelector(
     getOffers,
     getActiveCity,

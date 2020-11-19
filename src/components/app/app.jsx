@@ -5,6 +5,7 @@ import Main from "../main/main";
 import SignIn from "../signin/signin";
 import Favorites from "../favorites/favorites";
 import Room from "../room/room";
+import Message from "../message/message";
 
 const App = (props) => {
 
@@ -12,6 +13,7 @@ const App = (props) => {
 
   return (
     <BrowserRouter>
+      <Message />
       <Switch>
         <Route exact path="/">
           <Main />
