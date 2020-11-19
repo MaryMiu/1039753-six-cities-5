@@ -1,4 +1,4 @@
-import React, {PureComponent} from "react";
+import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getErrorMessage} from "../../store/selectors";
@@ -7,15 +7,16 @@ import {getErrorMessage} from "../../store/selectors";
 class Message extends PureComponent {
   constructor(props) {
     super(props);
+    this.messageRef = createRef();
   }
 
   render() {
     const {error} = this.props;
     setTimeout(() => {
-      console.log(`Удалить сообщение`);
+      this.messageRef.current.remove();
     }, 5000);
     return (
-      <div style={{position: `fixed`, width: `100%`, backgroundColor: `red`, color: `#fff`, textAlign: `center`, zIndex: `100`}}>{error}</div>
+      <div ref={this.messageRef} style={{position: `fixed`, width: `100%`, backgroundColor: `#d20000`, color: `#fff`, textAlign: `center`, zIndex: `100`}}>{error}</div>
     );
   }
 }
