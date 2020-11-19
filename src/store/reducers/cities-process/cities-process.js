@@ -6,6 +6,7 @@ const initialState = {
   activeCity: CITIES[0],
   activeOffer: {},
   activeSortType: Sort.POPULAR,
+  error: ``,
 };
 
 const citiesProcess = (state = initialState, action) => {
@@ -24,6 +25,10 @@ const citiesProcess = (state = initialState, action) => {
     case ActionType.GET_ACTIVE_SORT:
       return extend(state, {
         activeSortType: action.payload
+      });
+    case ActionType.SHOW_ERROR:
+      return extend(state, {
+        error: action.payload
       });
   }
 

@@ -24,4 +24,8 @@ export const ActionCreator = {
     type: ActionType.LOAD_OFFERS,
     payload: offers,
   }),
+  showError: (err) => ({
+    type: ActionType.SHOW_ERROR,
+    payload: err,
+  }),
 };
