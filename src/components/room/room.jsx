@@ -1,5 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {
+  useParams
+} from "react-router-dom";
 import Header from "../header/header";
 import OfferReviews from "../offer-reviews/offer-reviews";
 import PlacesList from "../places-list/places-list";
@@ -14,9 +17,14 @@ import {connect} from "react-redux";
 const MapWrapped = withMap(Map);
 
 const Room = (props) => {
+  const {id: currentId} = useParams();
   const {reviews, offers} = props;
-  const {id, photo, title, description, premium, type, rating, price, bedroomsCount, guestsCount, stuff, owner} = offers[0];
-  const {avatar, name, badge} = owner;
+  if (!offers.length) {
+    return null;
+  }
+  const currentOffer = offers.find((offer) => offer.id === Number(currentId));
+  const {images, title, description, isPremium, type, rating, price, bedrooms, maxAdults, goods, host} = currentOffer;
+  const {avatarUrl, name, isPro} = host;
   const offersNear = offers.slice(0, 3);
   const mapStyle = {
     display: `flex`,
@@ -37,17 +45,17 @@ const Room = (props) => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              {photo.map((img, i) => {
+              {images.map((img, i) => {
                 return (
                   <div key={`${i}-img`} className="property__image-wrapper">
-                    <img className="property__image" src={`/img/${img}`} alt="Photo studio" />
+                    <img className="property__image" src={`${img}`} alt="Photo studio" />
                   </div>);
               })}
             </div>
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              {premium ? <div className="property__mark"><span>Premium</span></div> : ``}
+              {isPremium ? <div className="property__mark"><span>Premium</span></div> : ``}
               <div className="property__name-wrapper">
                 <h1 className="property__name">
                   {title}
@@ -71,10 +79,10 @@ const Room = (props) => {
                   {type}
                 </li>
                 <li className="property__feature property__feature--bedrooms">
-                  {bedroomsCount} Bedrooms
+                  {bedrooms} Bedrooms
                 </li>
                 <li className="property__feature property__feature--adults">
-                  Max {guestsCount} adults
+                  Max {maxAdults} adults
                 </li>
               </ul>
               <div className="property__price">
@@ -84,8 +92,8 @@ const Room = (props) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  {stuff.map((stuffItem) => {
-                    return (<li key={id} className="property__inside-item">
+                  {goods.map((stuffItem) => {
+                    return (<li key={currentId} className="property__inside-item">
                       {stuffItem}
                     </li>);
                   })}
@@ -94,8 +102,8 @@ const Room = (props) => {
               <div className="property__host">
                 <h2 className="property__host-title">Meet the host</h2>
                 <div className="property__host-user user">
-                  <div className={badge ? `property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper` : `property__avatar-wrapper user__avatar-wrapper`}>
-                    <img className="property__avatar user__avatar" src={`${avatar}`} width="74" height="74" alt="Host avatar" />
+                  <div className={isPro ? `property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper` : `property__avatar-wrapper user__avatar-wrapper`}>
+                    <img className="property__avatar user__avatar" src={`${avatarUrl}`} width="74" height="74" alt="Host avatarUrl" />
                   </div>
                   <span className="property__user-name">
                     {name}
@@ -129,22 +137,22 @@ Room.propTypes = {
   offers: PropTypes.array.isRequired,
   offer: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    photo: PropTypes.array.isRequired,
+    images: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    premium: PropTypes.bool.isRequired,
+    isPremium: PropTypes.bool.isRequired,
     type: PropTypes.oneOf([OfferType.APARTMENT, OfferType.ROOM, OfferType.HOUSE, OfferType.HOTEL]).isRequired,
     rating: PropTypes.number.isRequired,
-    bedroomsCount: PropTypes.number.isRequired,
-    guestsCount: PropTypes.number.isRequired,
+    bedrooms: PropTypes.number.isRequired,
+    maxAdults: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
-    stuff: PropTypes.array.isRequired,
+    goods: PropTypes.array.isRequired,
   }),
   reviews: PropTypes.array.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  offers: state.offers,
+const mapStateToProps = ({DATA}) => ({
+  offers: DATA.offers,
 });
 
 export {Room};

@@ -62,3 +62,49 @@ export const sortPriceHightToLow = (offerA, offerB) => {
 
   return offerB.price - offerA.price;
 };
+
+export const arrayEqual = (array1, array2) => array1.length === array2.length && array1.every((value, index) => value === array2[index]);
+
+export const adaptToClient = (offer) => {
+  const adaptOffer = Object.assign({}, offer, {
+    isPremium: offer.is_premium,
+    isFavorite: offer.is_favorite,
+    maxAdults: offer.max_adults,
+    previewImage: offer.preview_image,
+    host: {
+      avatarUrl: offer.host.avatar_url,
+      isPro: offer.host.is_pro,
+    }
+  });
+
+  delete adaptOffer.is_premium;
+  delete adaptOffer.is_favorite;
+  delete adaptOffer.max_adults;
+  delete adaptOffer.preview_image;
+  delete adaptOffer.host.avatar_url;
+  delete adaptOffer.host.is_pro;
+
+  return adaptOffer;
+};
+
+export const adaptToServer = (offer) => {
+  const adaptedOffer = Object.assign({}, offer, {
+    "is_premium": offer.isPremium,
+    "is_favorite": offer.isFavorite,
+    "max_adults": offer.maxAdults,
+    "preview_image": offer.previewImage,
+    "host": {
+      "avatar_url": offer.host.avatarUrl,
+      "is_pro": offer.host.isPro,
+    }
+  });
+
+  delete adaptedOffer.isPremium;
+  delete adaptedOffer.isFavorite;
+  delete adaptedOffer.maxAdults;
+  delete adaptedOffer.previewImage;
+  delete adaptedOffer.host.avatarUrl;
+  delete adaptedOffer.host.isPro;
+
+  return adaptedOffer;
+};

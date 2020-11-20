@@ -8,13 +8,13 @@ import {
 
 const FavoritesCard = (props) => {
   const {offer} = props;
-  const {photo, title, type, rating, price} = offer;
+  const {previewImage, title, type, isFavorite, rating, price} = offer;
 
   return (
     <article className="favorites__card place-card">
       <div className="favorites__image-wrapper place-card__image-wrapper">
         <Link to={`/offer/${offer.id}`}>
-          <img className="place-card__image" src={`/img/${photo[0]}`} width="150" height="110" alt="Place image" />
+          <img className="place-card__image" src={`${previewImage}`} width="150" height="110" alt="Place image" />
         </Link>
       </div>
       <div className="favorites__card-info place-card__info">
@@ -23,7 +23,7 @@ const FavoritesCard = (props) => {
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
+          <button className={`place-card__bookmark-button button ${isFavorite ? `place-card__bookmark-button--active` : ``}`} type="button">
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
@@ -50,15 +50,16 @@ export default FavoritesCard;
 FavoritesCard.propTypes = {
   offer: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    photo: PropTypes.array.isRequired,
+    previewImage: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    premium: PropTypes.bool.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
     type: PropTypes.oneOf([OfferType.APARTMENT, OfferType.ROOM, OfferType.HOUSE, OfferType.HOTEL]).isRequired,
     rating: PropTypes.number.isRequired,
-    bedroomsCount: PropTypes.number.isRequired,
-    guestsCount: PropTypes.number.isRequired,
+    bedrooms: PropTypes.number.isRequired,
+    maxAdults: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
-    stuff: PropTypes.array.isRequired,
+    goods: PropTypes.array.isRequired,
   })
 };

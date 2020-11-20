@@ -1,8 +1,8 @@
 export const OfferType = {
-  APARTMENT: `Apartment`,
-  ROOM: `Room`,
-  HOUSE: `House`,
-  HOTEL: `Hotel`
+  APARTMENT: `apartment`,
+  ROOM: `room`,
+  HOUSE: `house`,
+  HOTEL: `hotel`
 };
 
 export const Sort = {
@@ -14,4 +14,7 @@ export const Sort = {
 
 export const CITIES = [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`];
 
-
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};

@@ -40,8 +40,8 @@ Favorites.propTypes = {
   offers: PropTypes.array.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  offers: state.offers,
+const mapStateToProps = ({DATA}) => ({
+  offers: DATA.offers,
 });
 
 export {Favorites};

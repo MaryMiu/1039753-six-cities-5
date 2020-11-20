@@ -12,6 +12,7 @@ import Empty from "../empty/empty";
 import {connect} from "react-redux";
 import {Sort} from "../../const";
 import {sortRatingDown, sortPriceLowToHight, sortPriceHightToLow} from "../../utils";
+import {getActiveCity, getOffersByCity, getActiveSortType} from "../../store/selectors";
 
 const SortListWrapped = withCollapse(Sortlist);
 const PlacesListWrapped = withPlace(PlacesList);
@@ -38,8 +39,7 @@ class Main extends PureComponent {
 
   render() {
     const {activeCity, offers, activeSortType} = this.props;
-    const filtredOffers = offers.filter((offer) => offer.city === activeCity).slice();
-    const sortedOffers = this.sortOffers(filtredOffers, activeSortType);
+    const sortedOffers = this.sortOffers(offers, activeSortType);
 
     const mapStyle = {
       display: `flex`,
@@ -53,15 +53,15 @@ class Main extends PureComponent {
     };
 
     return (
-      <div className={`page page--gray page--main ${filtredOffers.length === 0 ? `page__main--index-empty` : ``}`}>
+      <div className={`page page--gray page--main ${offers.length === 0 ? `page__main--index-empty` : ``}`}>
         <Header />
-        <main className={`page__main page__main--index ${filtredOffers.length === 0 ? `cities__places-container--empty` : ``}`}>
+        <main className={`page__main page__main--index ${offers.length === 0 ? `cities__places-container--empty` : ``}`}>
           <h1 className="visually-hidden">Cities</h1>
           <div className="tabs">
             <Menu />
           </div>
           <div className="cities">
-            {filtredOffers.length > 0 ?
+            {offers.length > 0 ?
               <div className="cities__places-container container">
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
@@ -92,9 +92,9 @@ Main.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  activeCity: state.activeCity,
-  offers: state.offers,
-  activeSortType: state.activeSortType,
+  activeCity: getActiveCity(state),
+  offers: getOffersByCity(state),
+  activeSortType: getActiveSortType(state),
 });
 
 export {Main};
