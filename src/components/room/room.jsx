@@ -19,6 +19,9 @@ const MapWrapped = withMap(Map);
 const Room = (props) => {
   const {id: currentId} = useParams();
   const {reviews, offers} = props;
+  if (!offers.length) {
+    return null;
+  }
   const currentOffer = offers.find((offer) => offer.id === Number(currentId));
   const {images, title, description, isPremium, type, rating, price, bedrooms, maxAdults, goods, host} = currentOffer;
   const {avatarUrl, name, isPro} = host;
