@@ -27,6 +27,9 @@ const withMap = (Component) => {
 
     createMap() {
       const {offers, activeOffer} = this.props;
+      if (offers.length === 0) {
+        return null;
+      }
       const coords = offers.map((offer) => [offer.location.latitude, offer.location.longitude]);
       const cityLatitude = offers[0].city.location.latitude;
       const cityLongitude = offers[0].city.location.longitude;
@@ -77,6 +80,8 @@ const withMap = (Component) => {
       });
 
       this.map = map;
+
+      return map;
     }
 
     render() {

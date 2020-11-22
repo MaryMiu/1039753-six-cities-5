@@ -3,7 +3,8 @@ import ActionType from "./../../constants";
 import {AuthorizationStatus} from "../../../const";
 
 const initialState = {
-  authorizationStatus: AuthorizationStatus.NO_AUTH
+  authorizationStatus: AuthorizationStatus.NO_AUTH,
+  email: ``,
 };
 
 const user = (state = initialState, action) => {
@@ -11,6 +12,10 @@ const user = (state = initialState, action) => {
     case ActionType.REQUIRED_AUTHORIZATION:
       return extend(state, {
         authorizationStatus: action.payload,
+      });
+    case ActionType.ADD_EMAIL:
+      return extend(state, {
+        email: action.payload,
       });
   }
 

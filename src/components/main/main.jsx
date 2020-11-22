@@ -8,11 +8,12 @@ import PlacesList from "../places-list/places-list";
 import Sortlist from "../sortlist/sortlist";
 import Map from "../map/map";
 import Menu from "../menu/menu";
-import Empty from "../empty/empty";
+import MainEmpty from "../main-empty/main-empty";
 import {connect} from "react-redux";
 import {Sort} from "../../const";
 import {sortRatingDown, sortPriceLowToHight, sortPriceHightToLow} from "../../utils";
 import {getActiveCity, getOffersByCity, getActiveSortType} from "../../store/selectors";
+import {fetchOfferList} from "../../store/api-actions";
 
 const SortListWrapped = withCollapse(Sortlist);
 const PlacesListWrapped = withPlace(PlacesList);
@@ -21,6 +22,16 @@ const MapWrapped = withMap(Map);
 class Main extends PureComponent {
   constructor(props) {
     super(props);
+    this.state = {
+      isLoaded: false
+    };
+  }
+
+  componentDidMount() {
+    const {fetchOfferListAction} = this.props;
+    fetchOfferListAction().then(() => {
+      this.setState({isLoaded: true});
+    });
   }
 
   sortOffers(offers, activeSortType) {
@@ -38,50 +49,55 @@ class Main extends PureComponent {
   }
 
   render() {
-    const {activeCity, offers, activeSortType} = this.props;
-    const sortedOffers = this.sortOffers(offers, activeSortType);
+    const {isLoaded} = this.state;
+    if (!isLoaded) {
+      return null;
+    } else {
+      const {activeCity, offers, activeSortType} = this.props;
+      const sortedOffers = this.sortOffers(offers, activeSortType);
 
-    const mapStyle = {
-      display: `flex`,
-      height: `100%`,
-      width: `100%`
-    };
-    const currentClasses = {
-      listClass: `cities__places-list tabs__content`,
-      cardClass: `cities__place-card`,
-      imgClass: `cities__image-wrapper`,
-    };
+      const mapStyle = {
+        display: `flex`,
+        height: `100%`,
+        width: `100%`
+      };
+      const currentClasses = {
+        listClass: `cities__places-list tabs__content`,
+        cardClass: `cities__place-card`,
+        imgClass: `cities__image-wrapper`,
+      };
 
-    return (
-      <div className={`page page--gray page--main ${offers.length === 0 ? `page__main--index-empty` : ``}`}>
-        <Header />
-        <main className={`page__main page__main--index ${offers.length === 0 ? `cities__places-container--empty` : ``}`}>
-          <h1 className="visually-hidden">Cities</h1>
-          <div className="tabs">
-            <Menu />
-          </div>
-          <div className="cities">
-            {offers.length > 0 ?
-              <div className="cities__places-container container">
-                <section className="cities__places places">
-                  <h2 className="visually-hidden">Places</h2>
-                  <b className="places__found">{sortedOffers.length} places to stay in {activeCity}</b>
-                  <SortListWrapped />
-                  <PlacesListWrapped offers={sortedOffers} currentClasses={currentClasses} />
-                </section>
-                <div className="cities__right-section">
-                  <section className="cities__map map">
-                    <MapWrapped offers={sortedOffers} mapStyle={mapStyle} />
+      return (
+        <div className={`page page--gray page--main ${offers.length === 0 ? `page__main--index-empty` : ``}`}>
+          <Header />
+          <main className={`page__main page__main--index ${offers.length === 0 ? `cities__places-container--empty` : ``}`}>
+            <h1 className="visually-hidden">Cities</h1>
+            <div className="tabs">
+              <Menu />
+            </div>
+            <div className="cities">
+              {offers.length > 0 ?
+                <div className="cities__places-container container">
+                  <section className="cities__places places">
+                    <h2 className="visually-hidden">Places</h2>
+                    <b className="places__found">{sortedOffers.length} places to stay in {activeCity}</b>
+                    <SortListWrapped />
+                    <PlacesListWrapped offers={sortedOffers} currentClasses={currentClasses} />
                   </section>
+                  <div className="cities__right-section">
+                    <section className="cities__map map">
+                      <MapWrapped offers={sortedOffers} mapStyle={mapStyle} />
+                    </section>
+                  </div>
                 </div>
-              </div>
-              :
-              <Empty />
-            }
-          </div>
-        </main>
-      </div>
-    );
+                :
+                <MainEmpty />
+              }
+            </div>
+          </main>
+        </div>
+      );
+    }
   }
 }
 
@@ -89,6 +105,7 @@ Main.propTypes = {
   activeCity: PropTypes.string.isRequired,
   offers: PropTypes.array.isRequired,
   activeSortType: PropTypes.string.isRequired,
+  fetchOfferListAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -97,6 +114,13 @@ const mapStateToProps = (state) => ({
   activeSortType: getActiveSortType(state),
 });
 
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchOfferListAction: () => dispatch(fetchOfferList())
+  };
+};
+
 export {Main};
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
 

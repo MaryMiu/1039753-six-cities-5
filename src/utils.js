@@ -65,7 +65,7 @@ export const sortPriceHightToLow = (offerA, offerB) => {
 
 export const arrayEqual = (array1, array2) => array1.length === array2.length && array1.every((value, index) => value === array2[index]);
 
-export const adaptToClient = (offer) => {
+export const offerAdaptToClient = (offer) => {
   const adaptOffer = Object.assign({}, offer, {
     isPremium: offer.is_premium,
     isFavorite: offer.is_favorite,
@@ -87,7 +87,7 @@ export const adaptToClient = (offer) => {
   return adaptOffer;
 };
 
-export const adaptToServer = (offer) => {
+export const offerAdaptToServer = (offer) => {
   const adaptedOffer = Object.assign({}, offer, {
     "is_premium": offer.isPremium,
     "is_favorite": offer.isFavorite,
@@ -107,4 +107,32 @@ export const adaptToServer = (offer) => {
   delete adaptedOffer.host.isPro;
 
   return adaptedOffer;
+};
+
+export const commentAdaptToClient = (comment) => {
+  const adaptComment = Object.assign({}, comment, {
+    user: {
+      avatarUrl: comment.user.avatar_url,
+      isPro: comment.user.is_pro
+    }
+  });
+
+  delete adaptComment.user.avatar_url;
+  delete adaptComment.user.is_pro;
+
+  return adaptComment;
+};
+
+export const commentAdaptToServer = (comment) => {
+  const adaptedComment = Object.assign({}, comment, {
+    user: {
+      "avatar_url": comment.avatarUrl,
+      "is_pro": comment.isPro,
+    }
+  });
+
+  delete adaptedComment.avatarUrl;
+  delete adaptedComment.isPro;
+
+  return adaptedComment;
 };

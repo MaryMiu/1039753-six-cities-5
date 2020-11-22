@@ -5,6 +5,7 @@ import Main from "../main/main";
 import SignIn from "../signin/signin";
 import Favorites from "../favorites/favorites";
 import Room from "../room/room";
+import AuthorizedRoute from "../authorized-route/authorized-route";
 import PrivateRoute from "../private-route/private-route";
 import Message from "../message/message";
 
@@ -19,12 +20,8 @@ const App = (props) => {
         <Route exact path="/">
           <Main />
         </Route>
-        <Route exact path="/login">
-          <SignIn />
-        </Route>
-        <PrivateRoute exact path="/favorites">
-          <Favorites />
-        </PrivateRoute>
+        <AuthorizedRoute exact path={`/login`} render={() => (<SignIn />)}></AuthorizedRoute>
+        <PrivateRoute exact path={`/favorites`} render={() => (<Favorites />)}></PrivateRoute>
         <Route exact path="/offer/:id">
           <Room reviews={reviews} />
         </Route>
