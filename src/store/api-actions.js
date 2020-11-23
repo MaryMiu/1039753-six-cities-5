@@ -1,5 +1,6 @@
 import {ActionCreator} from "./action";
 import {AuthorizationStatus} from "../const";
+import {createAPI} from '../services/api';
 
 export const fetchOfferList = () => (dispatch, _getState, api) => (
   api.get(`/hotels`)
@@ -65,3 +66,8 @@ export const login = ({login: email, password}) => (dispatch, _getState, api) =>
       dispatch(ActionCreator.showError(err.message));
     })
 );
+
+
+export const sendComment = ({id, rating, review}) => createAPI.post(`/comments/${id}`, {rating, review});
+export const setFavorite = (id) => createAPI.post(`/comments/${id}1`);
+export const removeFavorite = (id) => createAPI.post(`/comments/${id}0`);

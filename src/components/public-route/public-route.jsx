@@ -6,25 +6,23 @@ import {getAuthorizationStatus} from "../../store/selectors";
 import {AuthorizationStatus} from "../../const";
 
 
-const AuthorizedRoute = (props) => {
+const PublicRoute = (props) => {
   const {render, path, exact, authorizationStatus} = props;
 
-  return (
-    <Route
-      path={path}
-      exact={exact}
-      render={(routeProps) => {
-        return (
-          authorizationStatus === AuthorizationStatus.NO_AUTH
-            ? render(routeProps)
-            : <Redirect to={`/`} />
-        );
-      }}
-    />
-  );
+  if (authorizationStatus === AuthorizationStatus.NO_AUTH) {
+    return (
+      <Route
+        path={path}
+        exact={exact}
+        render={(routeProps) => render(routeProps)}
+      />
+    );
+  }
+
+  return <Redirect to={`/`} />;
 };
 
-AuthorizedRoute.propTypes = {
+PublicRoute.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   exact: PropTypes.bool.isRequired,
   path: PropTypes.string.isRequired,
@@ -36,5 +34,5 @@ const mapStateToProps = (state) => ({
 });
 
 
-export {AuthorizedRoute};
-export default connect(mapStateToProps)(AuthorizedRoute);
+export {PublicRoute};
+export default connect(mapStateToProps)(PublicRoute);
