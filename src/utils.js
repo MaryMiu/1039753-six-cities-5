@@ -63,6 +63,19 @@ export const sortPriceHightToLow = (offerA, offerB) => {
   return offerB.price - offerA.price;
 };
 
+export const sortDateNewByOld = (reviewA, reviewB) => {
+  const dateA = new Date(reviewA.date);
+  const dateB = new Date(reviewB.date);
+
+  const weight = getWeightForItems(dateA, dateB);
+
+  if (weight !== null) {
+    return weight;
+  }
+
+  return dateB.getTime() - dateA.getTime();
+};
+
 export const arrayEqual = (array1, array2) => array1.length === array2.length && array1.every((value, index) => value === array2[index]);
 
 export const offerAdaptToClient = (offer) => {
@@ -71,6 +84,7 @@ export const offerAdaptToClient = (offer) => {
     isFavorite: offer.is_favorite,
     maxAdults: offer.max_adults,
     previewImage: offer.preview_image,
+    type: (offer.type).toUpperCase(),
     host: {
       avatarUrl: offer.host.avatar_url,
       isPro: offer.host.is_pro,
@@ -93,6 +107,7 @@ export const offerAdaptToServer = (offer) => {
     "is_favorite": offer.isFavorite,
     "max_adults": offer.maxAdults,
     "preview_image": offer.previewImage,
+    "type": (offer.type).toLowerCase(),
     "host": {
       "avatar_url": offer.host.avatarUrl,
       "is_pro": offer.host.isPro,

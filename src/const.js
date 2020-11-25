@@ -1,8 +1,8 @@
 export const OfferType = {
-  APARTMENT: `apartment`,
-  ROOM: `room`,
-  HOUSE: `house`,
-  HOTEL: `hotel`
+  APARTMENT: `Apartment`,
+  ROOM: `Private Room`,
+  HOUSE: `House`,
+  HOTEL: `Hotel`
 };
 
 export const Sort = {
@@ -18,3 +18,6 @@ export const AuthorizationStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`,
 };
+
+export const MAX_COUNT_IMAGES = 6;
+export const MAX_COUNT_REVIEWS = 10;

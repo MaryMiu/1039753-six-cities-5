@@ -8,12 +8,15 @@ import OfferReviews from "../offer-reviews/offer-reviews";
 import PlacesList from "../places-list/places-list";
 import withMap from "../../hocs/with-map/with-map";
 import Map from "../map/map";
-import {OfferType} from "../../const";
+import {OfferType, MAX_COUNT_IMAGES} from "../../const";
 import {
   formatFloatingPointNumberToPercent
 } from "../../utils.js";
 import {connect} from "react-redux";
-import {fetchOffer, fetchOfferListNearby, fetchComments} from "../../store/api-actions";
+import {fetchOffer, fetchOfferListNearby, fetchComments, setFavorite, removeFavorite} from "../../store/api-actions";
+import {getOffers, getOffer, getOffersNearby, getComments, getAuthorizationStatus} from "../../store/selectors";
+import {AuthorizationStatus} from "../../const";
+
 
 const MapWrapped = withMap(Map);
 
@@ -30,13 +33,24 @@ class Room extends PureComponent {
     fetchCommentsAction(currentId);
   }
 
+  changeFavoriteStatus() {
+    const id = this.props.match.params.id;
+    const {offer, fetchOfferAction} = this.props;
+    const {isFavorite} = offer;
+    if (isFavorite) {
+      return removeFavorite(id).then(() => fetchOfferAction(id));
+    } else {
+      return setFavorite(id).then(() => fetchOfferAction(id));
+    }
+  }
+
   render() {
-    const {comments, offer, offersNearby} = this.props;
+    const {comments, offer, offersNearby, authorizationStatus} = this.props;
     if (Object.keys(offer).length === 0) {
       return null;
     }
 
-    const {id, images, title, description, isPremium, type, rating, price, bedrooms, maxAdults, goods, host} = offer;
+    const {id, images, title, description, isPremium, isFavorite, type, rating, price, bedrooms, maxAdults, goods, host} = offer;
     const {avatarUrl, name, isPro} = host;
     const mapStyle = {
       display: `flex`,
@@ -49,6 +63,7 @@ class Room extends PureComponent {
       cardClass: `near-places__card`,
       imgClass: `near-places__image-wrapper`,
     };
+    const offerImages = images.length > MAX_COUNT_IMAGES ? images.slice(0, MAX_COUNT_IMAGES) : images;
 
     return (
       <div className="page">
@@ -57,7 +72,7 @@ class Room extends PureComponent {
           <section className="property">
             <div className="property__gallery-container container">
               <div className="property__gallery">
-                {images.map((img, i) => {
+                {offerImages.map((img, i) => {
                   return (
                     <div key={`${i}-img`} className="property__image-wrapper">
                       <img className="property__image" src={`${img}`} alt="Photo studio" />
@@ -72,8 +87,15 @@ class Room extends PureComponent {
                   <h1 className="property__name">
                     {title}
                   </h1>
-                  <button className="property__bookmark-button button" type="button">
-                    <svg className="property__bookmark-icon" width="31" height="33">
+                  <button className={`property__bookmark-button button ${isFavorite ? `property__bookmark-button--active` : ``}`} type="button"
+                    onClick={()=> {
+                      if (AuthorizationStatus.NO_AUTH === authorizationStatus) {
+                        console.log(`Пользователь не авторизован`);
+                      } else {
+                        this.changeFavoriteStatus();
+                      }
+                    }}>
+                    <svg className="place-card__bookmark-icon" width="31" height="33">
                       <use xlinkHref="#icon-bookmark"></use>
                     </svg>
                     <span className="visually-hidden">To bookmarks</span>
@@ -88,7 +110,7 @@ class Room extends PureComponent {
                 </div>
                 <ul className="property__features">
                   <li className="property__feature property__feature--entire">
-                    {type}
+                    {OfferType[type]}
                   </li>
                   <li className="property__feature property__feature--bedrooms">
                     {bedrooms} Bedrooms
@@ -155,7 +177,8 @@ Room.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     isPremium: PropTypes.bool.isRequired,
-    type: PropTypes.oneOf([OfferType.APARTMENT, OfferType.ROOM, OfferType.HOUSE, OfferType.HOTEL]).isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+    type: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     bedrooms: PropTypes.number.isRequired,
     maxAdults: PropTypes.number.isRequired,
@@ -172,13 +195,15 @@ Room.propTypes = {
     }),
   }).isRequired,
   comments: PropTypes.array.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({DATA, COMMENTS}) => ({
-  offers: DATA.offers,
-  offer: DATA.offer,
-  offersNearby: DATA.offersNearby,
-  comments: COMMENTS.comments,
+const mapStateToProps = (state) => ({
+  offers: getOffers(state),
+  offer: getOffer(state),
+  offersNearby: getOffersNearby(state),
+  comments: getComments(state),
+  authorizationStatus: getAuthorizationStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => {

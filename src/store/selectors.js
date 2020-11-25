@@ -5,6 +5,14 @@ export const getOffers = (state) => {
   return state[NameSpace.DATA].offers;
 };
 
+export const getOffersNearby = (state) => {
+  return state[NameSpace.DATA].offersNearby;
+};
+
+export const getOffer = (state) => {
+  return state[NameSpace.DATA].offer;
+};
+
 export const getActiveCity = (state) => {
   return state[NameSpace.PROCESS].activeCity;
 };
