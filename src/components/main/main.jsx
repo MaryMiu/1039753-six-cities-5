@@ -8,11 +8,12 @@ import PlacesList from "../places-list/places-list";
 import Sortlist from "../sortlist/sortlist";
 import Map from "../map/map";
 import Menu from "../menu/menu";
-import Empty from "../empty/empty";
+import MainEmpty from "../main-empty/main-empty";
 import {connect} from "react-redux";
 import {Sort} from "../../const";
 import {sortRatingDown, sortPriceLowToHight, sortPriceHightToLow} from "../../utils";
 import {getActiveCity, getOffersByCity, getActiveSortType} from "../../store/selectors";
+import {fetchOfferList} from "../../store/api-actions";
 
 const SortListWrapped = withCollapse(Sortlist);
 const PlacesListWrapped = withPlace(PlacesList);
@@ -21,6 +22,11 @@ const MapWrapped = withMap(Map);
 class Main extends PureComponent {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    const {fetchOfferListAction} = this.props;
+    fetchOfferListAction();
   }
 
   sortOffers(offers, activeSortType) {
@@ -76,7 +82,7 @@ class Main extends PureComponent {
                 </div>
               </div>
               :
-              <Empty />
+              <MainEmpty />
             }
           </div>
         </main>
@@ -89,6 +95,7 @@ Main.propTypes = {
   activeCity: PropTypes.string.isRequired,
   offers: PropTypes.array.isRequired,
   activeSortType: PropTypes.string.isRequired,
+  fetchOfferListAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -97,6 +104,13 @@ const mapStateToProps = (state) => ({
   activeSortType: getActiveSortType(state),
 });
 
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchOfferListAction: () => dispatch(fetchOfferList())
+  };
+};
+
 export {Main};
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
 

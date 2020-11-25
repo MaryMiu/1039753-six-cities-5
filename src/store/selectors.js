@@ -17,6 +17,18 @@ export const getErrorMessage = (state) => {
   return state[NameSpace.PROCESS].error;
 };
 
+export const getAuthorizationStatus = (state) => {
+  return state[NameSpace.USER].authorizationStatus;
+};
+
+export const getUserEmail = (state) => {
+  return state[NameSpace.USER].email;
+};
+
+export const getComments = (state) => {
+  return state[NameSpace.COMMENTS].comments;
+};
+
 export const getOffersByCity = createSelector(
     getOffers,
     getActiveCity,

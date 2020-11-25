@@ -11,13 +11,14 @@ export const formatCommentDate = (date) => {
 
 const OfferReview = (props) => {
   const {review} = props;
-  const {name, avatar, star, date, text} = review;
+  const {user, rating, date, comment} = review;
+  const {name, avatarUrl} = user;
   const humanDate = formatCommentDate(date);
   return (
     <li className="reviews__item">
       <div className="reviews__user user">
         <div className="reviews__avatar-wrapper user__avatar-wrapper">
-          <img className="reviews__avatar user__avatar" src={avatar} width="54" height="54" alt="Reviews avatar" />
+          <img className="reviews__avatar user__avatar" src={avatarUrl} width="54" height="54" alt="Reviews avatar" />
         </div>
         <span className="reviews__user-name">
           {name}
@@ -26,14 +27,14 @@ const OfferReview = (props) => {
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{width: formatFloatingPointNumberToPercent(star) + `%`}}></span>
+            <span style={{width: formatFloatingPointNumberToPercent(rating) + `%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <p className="reviews__text">
-          {text}
+          {comment}
         </p>
-        <time className="reviews__time" dateTime="2019-04-24">{humanDate}</time>
+        <time className="reviews__time" dateTime={date}>{humanDate}</time>
       </div>
     </li>
   );
@@ -43,11 +44,12 @@ export default OfferReview;
 
 OfferReview.propTypes = {
   review: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    star: PropTypes.number.isRequired,
-    date: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    comment: PropTypes.string.isRequired,
+    user: PropTypes.shape({
+      name: PropTypes.string,
+      avatarUrl: PropTypes.string.isRequired,
+    })
   })
 };
