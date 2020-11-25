@@ -4,7 +4,6 @@ import Main from "../main/main";
 import SignIn from "../signin/signin";
 import Favorites from "../favorites/favorites";
 import Room from "../room/room";
-import PublicRoute from "../public-route/public-route";
 import PrivateRoute from "../private-route/private-route";
 import Message from "../message/message";
 
@@ -16,7 +15,9 @@ const App = () => {
         <Route exact path="/">
           <Main />
         </Route>
-        <PublicRoute exact path={`/login`} render={() => (<SignIn />)}></PublicRoute>
+        <Route exact path="/login">
+          <SignIn />
+        </Route>
         <PrivateRoute exact path={`/favorites`} render={() => (<Favorites />)}></PrivateRoute>
         <Route exact path="/offer/:id">
           <Room/>
