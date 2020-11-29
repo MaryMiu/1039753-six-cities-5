@@ -48,4 +48,20 @@ export const ActionCreator = {
     type: ActionType.ADD_EMAIL,
     payload: email,
   }),
+  addFavorite: (offerId) => ({
+    type: ActionType.ADD_FAVORITE,
+    payload: offerId,
+  }),
+  deleteFavorite: (offerId) => ({
+    type: ActionType.DELETE_FAVORITE,
+    payload: offerId,
+  }),
+  updateFavotites: (offersIds) => ({
+    type: ActionType.UPDATE_FAVORITES,
+    payload: offersIds,
+  }),
+  redirectToRoute: (url) => ({
+    type: ActionType.REDIRECT_TO_ROUTE,
+    payload: url,
+  }),
 };

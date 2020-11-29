@@ -8,15 +8,14 @@ const withReview = (Component) => {
 
       this.state = {
         rating: ``,
-        review: ``
+        comment: ``,
+        isDisabled: false,
       };
 
-      this.handleSubmit = this.handleSubmit.bind(this);
       this.handleFieldChange = this.handleFieldChange.bind(this);
-    }
+      this.handleDisabledChange = this.handleDisabledChange.bind(this);
+      this.resetForm = this.resetForm.bind(this);
 
-    handleSubmit(evt) {
-      evt.preventDefault();
     }
 
     handleFieldChange(evt) {
@@ -24,13 +23,28 @@ const withReview = (Component) => {
       this.setState({[name]: value});
     }
 
+    handleDisabledChange() {
+      this.setState({isDisabled: !this.state.isDisabled});
+    }
+
+    resetForm() {
+      this.setState({
+        rating: ``,
+        comment: ``,
+      });
+    }
+
     render() {
 
       return (
         <Component
           {...this.props}
+          rating={Number(this.state.rating)}
+          comment={this.state.comment}
+          isDisabled={this.state.isDisabled}
           onChangeForm={this.handleFieldChange}
-          onSubmitForm={this.handleSubmit}
+          onChangeDisabledState={this.handleDisabledChange}
+          resetForm={this.resetForm}
         >
         </Component>
       );
@@ -39,7 +53,8 @@ const withReview = (Component) => {
 
   WithReview.propTypes = {
     onChangeForm: PropTypes.func.isRequired,
-    onSubmitForm: PropTypes.func.isRequired,
+    onChangeInputState: PropTypes.func.isRequired,
+    onChangeButtonState: PropTypes.func.isRequired,
   };
 
   return WithReview;

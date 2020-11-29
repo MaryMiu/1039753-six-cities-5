@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Route, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {getAuthorizationStatus} from "../../store/selectors";
-import {AuthorizationStatus} from "../../const";
+import {AuthorizationStatus, AppRoute} from "../../const";
 
 
 const PrivateRoute = (props) => {
@@ -19,7 +19,7 @@ const PrivateRoute = (props) => {
     );
   }
 
-  return <Redirect to={`/login`} />;
+  return <Redirect to={AppRoute.LOGIN} />;
 };
 
 PrivateRoute.propTypes = {

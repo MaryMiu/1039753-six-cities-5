@@ -1,14 +1,3 @@
-export const getRandomInteger = (a = 0, b = 1) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-
-  return Math.floor(lower + Math.random() * (upper - lower + 1));
-};
-
-export const getRandomFloatingPointNumber = (min, max) => {
-  return min + Math.random() * (max - min);
-};
-
 export const formatFloatingPointNumberToPercent = (num) => {
   return num * 10 * 2;
 };
@@ -76,8 +65,6 @@ export const sortDateNewByOld = (reviewA, reviewB) => {
   return dateB.getTime() - dateA.getTime();
 };
 
-export const arrayEqual = (array1, array2) => array1.length === array2.length && array1.every((value, index) => value === array2[index]);
-
 export const offerAdaptToClient = (offer) => {
   const adaptOffer = Object.assign({}, offer, {
     isPremium: offer.is_premium,
@@ -101,29 +88,6 @@ export const offerAdaptToClient = (offer) => {
   return adaptOffer;
 };
 
-export const offerAdaptToServer = (offer) => {
-  const adaptedOffer = Object.assign({}, offer, {
-    "is_premium": offer.isPremium,
-    "is_favorite": offer.isFavorite,
-    "max_adults": offer.maxAdults,
-    "preview_image": offer.previewImage,
-    "type": (offer.type).toLowerCase(),
-    "host": {
-      "avatar_url": offer.host.avatarUrl,
-      "is_pro": offer.host.isPro,
-    }
-  });
-
-  delete adaptedOffer.isPremium;
-  delete adaptedOffer.isFavorite;
-  delete adaptedOffer.maxAdults;
-  delete adaptedOffer.previewImage;
-  delete adaptedOffer.host.avatarUrl;
-  delete adaptedOffer.host.isPro;
-
-  return adaptedOffer;
-};
-
 export const commentAdaptToClient = (comment) => {
   const adaptComment = Object.assign({}, comment, {
     user: {
@@ -136,18 +100,4 @@ export const commentAdaptToClient = (comment) => {
   delete adaptComment.user.is_pro;
 
   return adaptComment;
-};
-
-export const commentAdaptToServer = (comment) => {
-  const adaptedComment = Object.assign({}, comment, {
-    user: {
-      "avatar_url": comment.avatarUrl,
-      "is_pro": comment.isPro,
-    }
-  });
-
-  delete adaptedComment.avatarUrl;
-  delete adaptedComment.isPro;
-
-  return adaptedComment;
 };

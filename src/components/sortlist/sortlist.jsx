@@ -6,6 +6,10 @@ import {connect} from "react-redux";
 
 const Sortlist = (props) => {
   const {opened, onClickToggle, activeSortType, onOptionClick} = props;
+  const onClickToggleAndDispatch = (evt) => {
+    onOptionClick(evt);
+    onClickToggle();
+  };
 
   return (
     <form className="places__sorting" action="#" method="get">
@@ -17,10 +21,10 @@ const Sortlist = (props) => {
         </svg>
       </span>
       <ul className={`places__options places__options--custom ${opened === true ? `places__options--opened` : ``}`}>
-        <li onClick={onOptionClick} className={`places__option ${activeSortType === Sort.POPULAR ? `places__option--active` : ``}`} tabIndex="0" data-type={Sort.POPULAR}>Popular</li>
-        <li onClick={onOptionClick} className={`places__option ${activeSortType === Sort.LOW_TO_HIGH ? `places__option--active` : ``}`} tabIndex="0" data-type={Sort.LOW_TO_HIGH}>Price: low to high</li>
-        <li onClick={onOptionClick} className={`places__option ${activeSortType === Sort.HIGH_TO_LOW ? `places__option--active` : ``}`} tabIndex="0" data-type={Sort.HIGH_TO_LOW}>Price: high to low</li>
-        <li onClick={onOptionClick} className={`places__option ${activeSortType === Sort.TOP_RATED ? `places__option--active` : ``}`} tabIndex="0" data-type={Sort.TOP_RATED}>Top rated first</li>
+        <li onClick={onClickToggleAndDispatch} className={`places__option ${activeSortType === Sort.POPULAR ? `places__option--active` : ``}`} tabIndex="0" data-type={Sort.POPULAR}>Popular</li>
+        <li onClick={onClickToggleAndDispatch} className={`places__option ${activeSortType === Sort.LOW_TO_HIGH ? `places__option--active` : ``}`} tabIndex="0" data-type={Sort.LOW_TO_HIGH}>Price: low to high</li>
+        <li onClick={onClickToggleAndDispatch} className={`places__option ${activeSortType === Sort.HIGH_TO_LOW ? `places__option--active` : ``}`} tabIndex="0" data-type={Sort.HIGH_TO_LOW}>Price: high to low</li>
+        <li onClick={onClickToggleAndDispatch} className={`places__option ${activeSortType === Sort.TOP_RATED ? `places__option--active` : ``}`} tabIndex="0" data-type={Sort.TOP_RATED}>Top rated first</li>
       </ul>
     </form>
   );

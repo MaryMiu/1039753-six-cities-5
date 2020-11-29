@@ -5,19 +5,19 @@ import {connect} from "react-redux";
 import {login} from "../../store/api-actions";
 import Header from "../header/header";
 import {getAuthorizationStatus} from "../../store/selectors";
-import {AuthorizationStatus} from "../../const";
+import {AuthorizationStatus, AppRoute} from "../../const";
 
-class SignIn extends PureComponent {
+class Login extends PureComponent {
   constructor(props) {
     super(props);
 
     this.loginRef = createRef();
     this.passwordRef = createRef();
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
-  handleSubmit(evt) {
+  _handleSubmit(evt) {
     const {onSubmit} = this.props;
 
     evt.preventDefault();
@@ -31,7 +31,7 @@ class SignIn extends PureComponent {
   render() {
     const {authorizationStatus} = this.props;
     if (authorizationStatus === AuthorizationStatus.AUTH) {
-      return <Redirect to={`/`} />;
+      return <Redirect to={AppRoute.ROOT} />;
     } else {
       return (
         <div className="page page--gray page--login">
@@ -40,7 +40,7 @@ class SignIn extends PureComponent {
             <div className="page__login-container container">
               <section className="login">
                 <h1 className="login__title">Sign in</h1>
-                <form className="login__form form" action="#" method="post" onSubmit={this.handleSubmit}>
+                <form className="login__form form" action="#" method="post" onSubmit={this._handleSubmit}>
                   <div className="login__input-wrapper form__input-wrapper">
                     <label className="visually-hidden">E-mail</label>
                     <input className="login__input form__input" type="email" name="email" placeholder="Email" required="" ref={this.loginRef }/>
@@ -67,7 +67,7 @@ class SignIn extends PureComponent {
   }
 }
 
-SignIn.propTypes = {
+Login.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
@@ -82,6 +82,6 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export {SignIn};
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export {Login};
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
 

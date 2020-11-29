@@ -13,12 +13,20 @@ export const getOffer = (state) => {
   return state[NameSpace.DATA].offer;
 };
 
+export const getFavoriteOffers = (state) => {
+  return state[NameSpace.DATA].favoritesOffers;
+};
+
 export const getActiveCity = (state) => {
   return state[NameSpace.PROCESS].activeCity;
 };
 
 export const getActiveSortType = (state) => {
   return state[NameSpace.PROCESS].activeSortType;
+};
+
+export const getActiveOffer = (state) => {
+  return state[NameSpace.PROCESS].activeOffer;
 };
 
 export const getErrorMessage = (state) => {
@@ -36,6 +44,11 @@ export const getUserEmail = (state) => {
 export const getComments = (state) => {
   return state[NameSpace.COMMENTS].comments;
 };
+
+export const getFavoriteIds = (state) => {
+  return state[NameSpace.FAVORITES].favoriteIds;
+};
+
 
 export const getOffersByCity = createSelector(
     getOffers,

@@ -5,15 +5,12 @@ import {
 } from "../../utils.js";
 import moment from "moment";
 
-export const formatCommentDate = (date) => {
-  return moment(date).format(`MMMM YYYY`);
-};
 
 const OfferReview = (props) => {
   const {review} = props;
   const {user, rating, date, comment} = review;
   const {name, avatarUrl} = user;
-  const humanDate = formatCommentDate(date);
+  const humanDate = moment(date).format(`MMMM YYYY`);
   return (
     <li className="reviews__item">
       <div className="reviews__user user">

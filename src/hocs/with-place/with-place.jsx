@@ -13,12 +13,12 @@ const withPlace = (Component) => {
     }
 
     render() {
-      const {onMouseEnter} = this.props;
+      const {onMouseAction} = this.props;
 
       return (
         <Component
           {...this.props}
-          onMouseEnter={onMouseEnter}
+          onMouse={onMouseAction}
         >
         </Component>
       );
@@ -30,13 +30,13 @@ const withPlace = (Component) => {
   });
 
   const mapDispatchToProps = (dispatch) => ({
-    onMouseEnter(offer) {
+    onMouseAction(offer) {
       dispatch(ActionCreator.getActiveOffer(offer));
     }
   });
 
   WithPlace.propTypes = {
-    onMouseEnter: PropTypes.func.isRequired,
+    onMouseAction: PropTypes.func.isRequired,
   };
 
   return connect(mapStateToProps, mapDispatchToProps)(WithPlace);
