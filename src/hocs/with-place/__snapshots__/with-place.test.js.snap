@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render withPlace connected to store Should withPlace connected to store render correctly 1`] = `<div />`;

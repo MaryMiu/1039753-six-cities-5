@@ -15,14 +15,18 @@ class Map extends PureComponent {
   }
 
   componentDidMount() {
-    this._createMap();
+    setTimeout(() => {
+      this._createMap();
+    });
   }
 
   componentDidUpdate() {
-    if (this.map !== null) {
-      this._removeMap();
-      this._createMap();
-    }
+    setTimeout(() => {
+      if (this.map !== null) {
+        this._removeMap();
+        this._createMap();
+      }
+    });
   }
 
   _removeMap() {

@@ -15,9 +15,6 @@ const citiesProcess = (state = initialState, action) => {
       return extend(state, {
         activeCity: action.payload
       });
-    case ActionType.RESET_CITY:
-      return extend({}, initialState
-      );
     case ActionType.GET_ACTIVE_OFFER:
       return extend(state, {
         activeOffer: action.payload

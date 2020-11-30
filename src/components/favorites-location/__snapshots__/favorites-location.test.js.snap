@@ -1,5 +1,210 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`FavoritesLocation render correctly FavoritesLocation with offers 1`] = `
+<li
+  className="favorites__locations-items"
+>
+  <div
+    className="favorites__locations locations locations--current"
+  >
+    <div
+      className="locations__item"
+    >
+      <a
+        className="locations__item-link"
+        href="#"
+      >
+        <span>
+          Paris
+        </span>
+      </a>
+    </div>
+  </div>
+  <div
+    className="favorites__places"
+  >
+    <FavoritesCard
+      offer={
+        Object {
+          "bedrooms": 3,
+          "city": Object {
+            "location": Object {
+              "latitude": 50.938361,
+              "longitude": 6.959974,
+              "zoom": 13,
+            },
+            "name": "Cologne",
+          },
+          "description": "Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.",
+          "goods": Array [
+            "Laptop friendly workspace",
+            "Washer",
+            "Towels",
+            "Fridge",
+            "Air conditioning",
+            "Baby seat",
+            "Breakfast",
+          ],
+          "host": Object {
+            "avatarUrl": "img/avatar-angelina.jpg",
+            "isPro": true,
+          },
+          "id": 1,
+          "images": Array [
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+          ],
+          "isFavorite": false,
+          "isPremium": false,
+          "location": Object {
+            "latitude": 50.957361,
+            "longitude": 6.9509739999999995,
+            "zoom": 16,
+          },
+          "maxAdults": 4,
+          "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+          "price": 493,
+          "rating": 3.8,
+          "title": "The house among olive ",
+          "type": "HOUSE",
+        }
+      }
+    />
+    <FavoritesCard
+      offer={
+        Object {
+          "bedrooms": 3,
+          "city": Object {
+            "location": Object {
+              "latitude": 50.846557,
+              "longitude": 4.351697,
+              "zoom": 13,
+            },
+            "name": "Brussels",
+          },
+          "description": "This is a place for dreamers to reset, reflect, and create. Designed with a \`slow\` pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.",
+          "goods": Array [
+            "Towels",
+            "Baby seat",
+            "Laptop friendly workspace",
+            "Dishwasher",
+            "Washing machine",
+            "Air conditioning",
+            "Washer",
+            "Coffee machine",
+            "Breakfast",
+            "Fridge",
+          ],
+          "host": Object {
+            "avatarUrl": "img/avatar-angelina.jpg",
+            "isPro": true,
+          },
+          "id": 2,
+          "images": Array [
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/20.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/18.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+          ],
+          "isFavorite": false,
+          "isPremium": false,
+          "location": Object {
+            "latitude": 50.839557,
+            "longitude": 4.346697,
+            "zoom": 16,
+          },
+          "maxAdults": 8,
+          "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+          "price": 323,
+          "rating": 4.3,
+          "title": "Amazing and Extremely Central Flat",
+          "type": "APARTMENT",
+        }
+      }
+    />
+    <FavoritesCard
+      offer={
+        Object {
+          "bedrooms": 4,
+          "city": Object {
+            "location": Object {
+              "latitude": 50.846557,
+              "longitude": 4.351697,
+              "zoom": 13,
+            },
+            "name": "Brussels",
+          },
+          "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+          "goods": Array [
+            "Washer",
+            "Laptop friendly workspace",
+            "Breakfast",
+            "Air conditioning",
+            "Baby seat",
+          ],
+          "host": Object {
+            "avatarUrl": "img/avatar-angelina.jpg",
+            "isPro": true,
+          },
+          "id": 3,
+          "images": Array [
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/12.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/6.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+            "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+          ],
+          "isFavorite": false,
+          "isPremium": false,
+          "location": Object {
+            "latitude": 50.865556999999995,
+            "longitude": 4.371696999999999,
+            "zoom": 16,
+          },
+          "maxAdults": 7,
+          "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+          "price": 218,
+          "rating": 4.6,
+          "title": "The house among olive ",
+          "type": "APARTMENT",
+        }
+      }
+    />
+  </div>
+</li>
+`;
+
 exports[`FavoritesLocation render correctly FavoritesLocation without offers 1`] = `
 <li
   className="favorites__locations-items"

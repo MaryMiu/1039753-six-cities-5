@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfferReviews render correctly Should OfferReviews render correctly when no comments 1`] = `
+<section
+  className="property__reviews reviews"
+>
+  <h2
+    className="reviews__title"
+  >
+    Reviews · 
+    <span
+      className="reviews__amount"
+    >
+      0
+    </span>
+  </h2>
+  <ul
+    className="reviews__list"
+  />
+  
+</section>
+`;
+
+exports[`OfferReviews render correctly Should OfferReviews render correctly when user auth 1`] = `
+<section
+  className="property__reviews reviews"
+>
+  <h2
+    className="reviews__title"
+  >
+    Reviews · 
+    <span
+      className="reviews__amount"
+    >
+      3
+    </span>
+  </h2>
+  <ul
+    className="reviews__list"
+  >
+    <OfferReview
+      review={
+        Object {
+          "comment": "The room was spacious and clean. The pool looked nothing like the photos and desparately needs a clean. The sauna and spa were closed for lunar new year holiday.",
+          "date": "2020-10-28T13:38:44.753Z",
+          "id": 1,
+          "rating": 2,
+          "user": Object {
+            "avatarUrl": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/6.jpg",
+            "isPro": false,
+          },
+        }
+      }
+    />
+    <OfferReview
+      review={
+        Object {
+          "comment": "What an amazing view! The house is stunning and in an amazing location. The large glass wall had an amazing view of the river!",
+          "date": "2020-10-28T13:38:44.753Z",
+          "id": 2,
+          "rating": 3,
+          "user": Object {
+            "avatarUrl": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/6.jpg",
+            "isPro": false,
+          },
+        }
+      }
+    />
+    <OfferReview
+      review={
+        Object {
+          "comment": "The deluxe room was a quite comfortable one with all the adequate facilities. The only thing that made me feel uncomfortable was the rude behavior of an impolite staff at the reception desk.",
+          "date": "2020-10-28T13:38:44.753Z",
+          "id": 3,
+          "rating": 4,
+          "user": Object {
+            "avatarUrl": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/2.jpg",
+            "isPro": false,
+          },
+        }
+      }
+    />
+  </ul>
+  <ReviewsForm
+    comment=""
+    isDisabled={false}
+    onChangeDisabledState={[Function]}
+    onChangeForm={[Function]}
+    rating={0}
+    resetForm={[Function]}
+  />
+</section>
+`;
+
+exports[`OfferReviews render correctly Should OfferReviews render correctly when user no auth 1`] = `
+<section
+  className="property__reviews reviews"
+>
+  <h2
+    className="reviews__title"
+  >
+    Reviews · 
+    <span
+      className="reviews__amount"
+    >
+      3
+    </span>
+  </h2>
+  <ul
+    className="reviews__list"
+  >
+    <OfferReview
+      review={
+        Object {
+          "comment": "The room was spacious and clean. The pool looked nothing like the photos and desparately needs a clean. The sauna and spa were closed for lunar new year holiday.",
+          "date": "2020-10-28T13:38:44.753Z",
+          "id": 1,
+          "rating": 2,
+          "user": Object {
+            "avatarUrl": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/6.jpg",
+            "isPro": false,
+          },
+        }
+      }
+    />
+    <OfferReview
+      review={
+        Object {
+          "comment": "What an amazing view! The house is stunning and in an amazing location. The large glass wall had an amazing view of the river!",
+          "date": "2020-10-28T13:38:44.753Z",
+          "id": 2,
+          "rating": 3,
+          "user": Object {
+            "avatarUrl": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/6.jpg",
+            "isPro": false,
+          },
+        }
+      }
+    />
+    <OfferReview
+      review={
+        Object {
+          "comment": "The deluxe room was a quite comfortable one with all the adequate facilities. The only thing that made me feel uncomfortable was the rude behavior of an impolite staff at the reception desk.",
+          "date": "2020-10-28T13:38:44.753Z",
+          "id": 3,
+          "rating": 4,
+          "user": Object {
+            "avatarUrl": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/2.jpg",
+            "isPro": false,
+          },
+        }
+      }
+    />
+  </ul>
+  
+</section>
+`;

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Sort} from "../../const";
 import {ActionCreator} from "../../store/action";
+import withCollapse from "../../hocs/with-collapse/with-collapse";
 import {connect} from "react-redux";
 
 const Sortlist = (props) => {
@@ -48,4 +49,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {Sortlist};
-export default connect(mapStateToProps, mapDispatchToProps)(Sortlist);
+export default connect(mapStateToProps, mapDispatchToProps)(withCollapse(Sortlist));

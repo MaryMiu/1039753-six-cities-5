@@ -1,8 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header";
-import withPlace from "../../hocs/with-place/with-place";
-import withCollapse from "../../hocs/with-collapse/with-collapse";
 import PlacesList from "../places-list/places-list";
 import Sortlist from "../sortlist/sortlist";
 import Map from "../map/map";
@@ -13,9 +11,6 @@ import {Sort} from "../../const";
 import {sortRatingDown, sortPriceLowToHight, sortPriceHightToLow} from "../../utils";
 import {getActiveCity, getOffersByCity, getActiveSortType} from "../../store/selectors";
 import {fetchOfferList} from "../../store/api-actions";
-
-const SortListWrapped = withCollapse(Sortlist);
-const PlacesListWrapped = withPlace(PlacesList);
 
 class Main extends PureComponent {
   constructor(props) {
@@ -71,8 +66,8 @@ class Main extends PureComponent {
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
                   <b className="places__found">{sortedOffers.length} places to stay in {activeCity}</b>
-                  <SortListWrapped />
-                  <PlacesListWrapped offers={sortedOffers} currentClasses={currentClasses} />
+                  <Sortlist />
+                  <PlacesList offers={sortedOffers} currentClasses={currentClasses} />
                 </section>
                 <div className="cities__right-section">
                   <section className="cities__map map">

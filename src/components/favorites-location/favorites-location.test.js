@@ -4,6 +4,8 @@ import renderer from "react-test-renderer";
 import FavoritesLocation from "./favorites-location";
 import {offers} from "../../mock/for-test";
 
+jest.mock(`../favorites-card/favorites-card`, () => `FavoritesCard`);
+
 describe(`FavoritesLocation render correctly`, () => {
 
   it(`FavoritesLocation with offers`, () => {

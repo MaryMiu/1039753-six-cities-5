@@ -1,17 +1,19 @@
 import React from "react";
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import renderer from "react-test-renderer";
 import FavoritesCard from "./favorites-card";
 import {offer} from "../../mock/for-test";
 
+jest.mock(`../favorite-button/favorite-button`, () => `FavoriteButton`);
+
 it(`FavoritesCard render correctly`, () => {
   const tree = renderer
     .create(
-        <Router>
+        <BrowserRouter>
           <FavoritesCard
             offer={offer}
           />
-        </Router>)
+        </BrowserRouter>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
