@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Header from "../header/header";
 import withPlace from "../../hocs/with-place/with-place";
 import withCollapse from "../../hocs/with-collapse/with-collapse";
-import withMap from "../../hocs/with-map/with-map";
 import PlacesList from "../places-list/places-list";
 import Sortlist from "../sortlist/sortlist";
 import Map from "../map/map";
@@ -17,7 +16,6 @@ import {fetchOfferList} from "../../store/api-actions";
 
 const SortListWrapped = withCollapse(Sortlist);
 const PlacesListWrapped = withPlace(PlacesList);
-const MapWrapped = withMap(Map);
 
 class Main extends PureComponent {
   constructor(props) {
@@ -29,7 +27,7 @@ class Main extends PureComponent {
     fetchOfferListAction();
   }
 
-  sortOffers(offers, activeSortType) {
+  _sortOffers(offers, activeSortType) {
     switch (activeSortType) {
       case (Sort.POPULAR):
         return offers;
@@ -45,7 +43,8 @@ class Main extends PureComponent {
 
   render() {
     const {activeCity, offers, activeSortType} = this.props;
-    const sortedOffers = this.sortOffers(offers, activeSortType);
+    const defaultOffers = offers.slice();
+    const sortedOffers = this._sortOffers(defaultOffers, activeSortType);
 
     const mapStyle = {
       display: `flex`,
@@ -77,7 +76,7 @@ class Main extends PureComponent {
                 </section>
                 <div className="cities__right-section">
                   <section className="cities__map map">
-                    <MapWrapped offers={sortedOffers} mapStyle={mapStyle} />
+                    <Map offers={sortedOffers} mapStyle={mapStyle} />
                   </section>
                 </div>
               </div>

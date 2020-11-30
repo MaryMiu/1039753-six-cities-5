@@ -2,10 +2,10 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header";
 import {connect} from "react-redux";
-import {CITIES} from "../../const";
 import FavoritesLocation from "../favorites-location/favorites-location";
 import FavoritesEmpty from "../favorites-empty/favorites-empty";
 import {fetchFavoriteList} from "../../store/api-actions";
+import {getFavoriteOffers, getFavoriteIds} from "../../store/selectors";
 
 class Favorites extends PureComponent {
   constructor(props) {
@@ -18,20 +18,22 @@ class Favorites extends PureComponent {
   }
 
   render() {
-    const {favoritesOffers} = this.props;
-    const favoriteCities = CITIES.slice(0, 2);
+    const {favoritesOffers, favoriteIds} = this.props;
+    const filtredFavoritesOffers = favoritesOffers.filter((favoritesOffer) => favoriteIds.includes(favoritesOffer.id));
+    const favoriteCities = filtredFavoritesOffers.map((favoritesOffer) => favoritesOffer.city.name);
+    const uniqueCities = Array.from(new Set(favoriteCities));
     return (
-      <div className={`page ${favoritesOffers.length === 0 ? `page--favorites-empty` : ``}`}>
+      <div className={`page ${filtredFavoritesOffers.length === 0 ? `page--favorites-empty` : ``}`}>
         <Header />
-        {favoritesOffers.length > 0 ?
+        {filtredFavoritesOffers.length > 0 ?
           <main className="page__main page__main--favorites">
             <div className="page__favorites-container container">
               <section className="favorites">
                 <h1 className="favorites__title">Saved listing</h1>
                 <ul className="favorites__list">
-                  {favoriteCities.map((favoriteCity) => {
+                  {uniqueCities.map((uniqueCity) => {
                     return (
-                      <FavoritesLocation key={favoriteCity} city={favoriteCity} offers={favoritesOffers} />
+                      <FavoritesLocation key={uniqueCity} city={uniqueCity} offers={filtredFavoritesOffers.filter((filtredFavoriteOffer) => filtredFavoriteOffer.city.name === uniqueCity)} />
                     );
                   })}
                 </ul>
@@ -53,11 +55,13 @@ class Favorites extends PureComponent {
 
 Favorites.propTypes = {
   favoritesOffers: PropTypes.array.isRequired,
+  favoriteIds: PropTypes.array.isRequired,
   fetchFavoriteListAction: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({DATA}) => ({
-  favoritesOffers: DATA.favoritesOffers,
+const mapStateToProps = (state) => ({
+  favoritesOffers: getFavoriteOffers(state),
+  favoriteIds: getFavoriteIds(state),
 });
 
 const mapDispatchToProps = (dispatch) => {
