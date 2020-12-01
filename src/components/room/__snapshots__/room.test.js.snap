@@ -1,0 +1,1286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Room render correctly Should Room render correctly with comments 1`] = `
+<div
+  className="page"
+>
+  <Header />
+  <main
+    className="page__main page__main--property"
+  >
+    <section
+      className="property"
+    >
+      <div
+        className="property__gallery-container container"
+      >
+        <div
+          className="property__gallery"
+        >
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="property__container container"
+      >
+        <div
+          className="property__wrapper"
+        >
+          
+          <div
+            className="property__name-wrapper"
+          >
+            <h1
+              className="property__name"
+            >
+              The house among olive 
+            </h1>
+            <FavoriteButton
+              btnType="property"
+              offerId={1}
+            />
+          </div>
+          <div
+            className="property__rating rating"
+          >
+            <div
+              className="property__stars rating__stars"
+            >
+              <span
+                style={
+                  Object {
+                    "width": "76%",
+                  }
+                }
+              />
+              <span
+                className="visually-hidden"
+              >
+                Rating
+              </span>
+            </div>
+            <span
+              className="property__rating-value rating__value"
+            >
+              3.8
+            </span>
+          </div>
+          <ul
+            className="property__features"
+          >
+            <li
+              className="property__feature property__feature--entire"
+            >
+              House
+            </li>
+            <li
+              className="property__feature property__feature--bedrooms"
+            >
+              3
+               Bedrooms
+            </li>
+            <li
+              className="property__feature property__feature--adults"
+            >
+              Max 
+              4
+               adults
+            </li>
+          </ul>
+          <div
+            className="property__price"
+          >
+            <b
+              className="property__price-value"
+            >
+              €
+              493
+            </b>
+            <span
+              className="property__price-text"
+            >
+               night
+            </span>
+          </div>
+          <div
+            className="property__inside"
+          >
+            <h2
+              className="property__inside-title"
+            >
+              What's inside
+            </h2>
+            <ul
+              className="property__inside-list"
+            >
+              <li
+                className="property__inside-item"
+              >
+                Laptop friendly workspace
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Washer
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Towels
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Fridge
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Air conditioning
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Baby seat
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Breakfast
+              </li>
+            </ul>
+          </div>
+          <div
+            className="property__host"
+          >
+            <h2
+              className="property__host-title"
+            >
+              Meet the host
+            </h2>
+            <div
+              className="property__host-user user"
+            >
+              <div
+                className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper"
+              >
+                <img
+                  alt="Host avatarUrl"
+                  className="property__avatar user__avatar"
+                  height="74"
+                  src="img/avatar-angelina.jpg"
+                  width="74"
+                />
+              </div>
+              <span
+                className="property__user-name"
+              />
+            </div>
+            <div
+              className="property__description"
+            >
+              <p
+                className="property__text"
+              >
+                Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.
+              </p>
+            </div>
+          </div>
+          <OfferReviews
+            reviews={
+              Array [
+                Object {
+                  "comment": "The room was spacious and clean. The pool looked nothing like the photos and desparately needs a clean. The sauna and spa were closed for lunar new year holiday.",
+                  "date": "2020-10-28T13:38:44.753Z",
+                  "id": 1,
+                  "rating": 2,
+                  "user": Object {
+                    "avatarUrl": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/6.jpg",
+                    "isPro": false,
+                  },
+                },
+                Object {
+                  "comment": "What an amazing view! The house is stunning and in an amazing location. The large glass wall had an amazing view of the river!",
+                  "date": "2020-10-28T13:38:44.753Z",
+                  "id": 2,
+                  "rating": 3,
+                  "user": Object {
+                    "avatarUrl": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/6.jpg",
+                    "isPro": false,
+                  },
+                },
+                Object {
+                  "comment": "The deluxe room was a quite comfortable one with all the adequate facilities. The only thing that made me feel uncomfortable was the rude behavior of an impolite staff at the reception desk.",
+                  "date": "2020-10-28T13:38:44.753Z",
+                  "id": 3,
+                  "rating": 4,
+                  "user": Object {
+                    "avatarUrl": "https://assets.htmlacademy.ru/intensives/javascript-3/avatar/2.jpg",
+                    "isPro": false,
+                  },
+                },
+              ]
+            }
+          />
+        </div>
+      </div>
+      <section
+        className="property__map map"
+      >
+        <Map
+          mapStyle={
+            Object {
+              "display": "flex",
+              "height": "100%",
+              "margin": "0 auto",
+              "width": 1144,
+            }
+          }
+          offers={
+            Array [
+              Object {
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.938361,
+                    "longitude": 6.959974,
+                    "zoom": 13,
+                  },
+                  "name": "Cologne",
+                },
+                "description": "Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.",
+                "goods": Array [
+                  "Laptop friendly workspace",
+                  "Washer",
+                  "Towels",
+                  "Fridge",
+                  "Air conditioning",
+                  "Baby seat",
+                  "Breakfast",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 1,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.957361,
+                  "longitude": 6.9509739999999995,
+                  "zoom": 16,
+                },
+                "maxAdults": 4,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                "price": 493,
+                "rating": 3.8,
+                "title": "The house among olive ",
+                "type": "HOUSE",
+              },
+              Object {
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.846557,
+                    "longitude": 4.351697,
+                    "zoom": 13,
+                  },
+                  "name": "Brussels",
+                },
+                "description": "This is a place for dreamers to reset, reflect, and create. Designed with a \`slow\` pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.",
+                "goods": Array [
+                  "Towels",
+                  "Baby seat",
+                  "Laptop friendly workspace",
+                  "Dishwasher",
+                  "Washing machine",
+                  "Air conditioning",
+                  "Washer",
+                  "Coffee machine",
+                  "Breakfast",
+                  "Fridge",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 2,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/20.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/18.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.839557,
+                  "longitude": 4.346697,
+                  "zoom": 16,
+                },
+                "maxAdults": 8,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                "price": 323,
+                "rating": 4.3,
+                "title": "Amazing and Extremely Central Flat",
+                "type": "APARTMENT",
+              },
+              Object {
+                "bedrooms": 4,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.846557,
+                    "longitude": 4.351697,
+                    "zoom": 13,
+                  },
+                  "name": "Brussels",
+                },
+                "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+                "goods": Array [
+                  "Washer",
+                  "Laptop friendly workspace",
+                  "Breakfast",
+                  "Air conditioning",
+                  "Baby seat",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 3,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/12.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/6.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.865556999999995,
+                  "longitude": 4.371696999999999,
+                  "zoom": 16,
+                },
+                "maxAdults": 7,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                "price": 218,
+                "rating": 4.6,
+                "title": "The house among olive ",
+                "type": "APARTMENT",
+              },
+            ]
+          }
+        />
+      </section>
+    </section>
+    <div
+      className="container"
+    >
+      <section
+        className="near-places places"
+      >
+        <h2
+          className="near-places__title"
+        >
+          Other places in the neighbourhood
+        </h2>
+        <PlacesList
+          currentClasses={
+            Object {
+              "cardClass": "near-places__card",
+              "imgClass": "near-places__image-wrapper",
+              "listClass": "near-places__list",
+            }
+          }
+          offers={
+            Array [
+              Object {
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.938361,
+                    "longitude": 6.959974,
+                    "zoom": 13,
+                  },
+                  "name": "Cologne",
+                },
+                "description": "Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.",
+                "goods": Array [
+                  "Laptop friendly workspace",
+                  "Washer",
+                  "Towels",
+                  "Fridge",
+                  "Air conditioning",
+                  "Baby seat",
+                  "Breakfast",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 1,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.957361,
+                  "longitude": 6.9509739999999995,
+                  "zoom": 16,
+                },
+                "maxAdults": 4,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                "price": 493,
+                "rating": 3.8,
+                "title": "The house among olive ",
+                "type": "HOUSE",
+              },
+              Object {
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.846557,
+                    "longitude": 4.351697,
+                    "zoom": 13,
+                  },
+                  "name": "Brussels",
+                },
+                "description": "This is a place for dreamers to reset, reflect, and create. Designed with a \`slow\` pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.",
+                "goods": Array [
+                  "Towels",
+                  "Baby seat",
+                  "Laptop friendly workspace",
+                  "Dishwasher",
+                  "Washing machine",
+                  "Air conditioning",
+                  "Washer",
+                  "Coffee machine",
+                  "Breakfast",
+                  "Fridge",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 2,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/20.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/18.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.839557,
+                  "longitude": 4.346697,
+                  "zoom": 16,
+                },
+                "maxAdults": 8,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                "price": 323,
+                "rating": 4.3,
+                "title": "Amazing and Extremely Central Flat",
+                "type": "APARTMENT",
+              },
+              Object {
+                "bedrooms": 4,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.846557,
+                    "longitude": 4.351697,
+                    "zoom": 13,
+                  },
+                  "name": "Brussels",
+                },
+                "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+                "goods": Array [
+                  "Washer",
+                  "Laptop friendly workspace",
+                  "Breakfast",
+                  "Air conditioning",
+                  "Baby seat",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 3,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/12.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/6.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.865556999999995,
+                  "longitude": 4.371696999999999,
+                  "zoom": 16,
+                },
+                "maxAdults": 7,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                "price": 218,
+                "rating": 4.6,
+                "title": "The house among olive ",
+                "type": "APARTMENT",
+              },
+            ]
+          }
+          onMouse={[Function]}
+        />
+      </section>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Room render correctly Should Room render correctly without comments 1`] = `
+<div
+  className="page"
+>
+  <Header />
+  <main
+    className="page__main page__main--property"
+  >
+    <section
+      className="property"
+    >
+      <div
+        className="property__gallery-container container"
+      >
+        <div
+          className="property__gallery"
+        >
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg"
+            />
+          </div>
+          <div
+            className="property__image-wrapper"
+          >
+            <img
+              alt="Photo studio"
+              className="property__image"
+              src="https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="property__container container"
+      >
+        <div
+          className="property__wrapper"
+        >
+          
+          <div
+            className="property__name-wrapper"
+          >
+            <h1
+              className="property__name"
+            >
+              The house among olive 
+            </h1>
+            <FavoriteButton
+              btnType="property"
+              offerId={1}
+            />
+          </div>
+          <div
+            className="property__rating rating"
+          >
+            <div
+              className="property__stars rating__stars"
+            >
+              <span
+                style={
+                  Object {
+                    "width": "76%",
+                  }
+                }
+              />
+              <span
+                className="visually-hidden"
+              >
+                Rating
+              </span>
+            </div>
+            <span
+              className="property__rating-value rating__value"
+            >
+              3.8
+            </span>
+          </div>
+          <ul
+            className="property__features"
+          >
+            <li
+              className="property__feature property__feature--entire"
+            >
+              House
+            </li>
+            <li
+              className="property__feature property__feature--bedrooms"
+            >
+              3
+               Bedrooms
+            </li>
+            <li
+              className="property__feature property__feature--adults"
+            >
+              Max 
+              4
+               adults
+            </li>
+          </ul>
+          <div
+            className="property__price"
+          >
+            <b
+              className="property__price-value"
+            >
+              €
+              493
+            </b>
+            <span
+              className="property__price-text"
+            >
+               night
+            </span>
+          </div>
+          <div
+            className="property__inside"
+          >
+            <h2
+              className="property__inside-title"
+            >
+              What's inside
+            </h2>
+            <ul
+              className="property__inside-list"
+            >
+              <li
+                className="property__inside-item"
+              >
+                Laptop friendly workspace
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Washer
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Towels
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Fridge
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Air conditioning
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Baby seat
+              </li>
+              <li
+                className="property__inside-item"
+              >
+                Breakfast
+              </li>
+            </ul>
+          </div>
+          <div
+            className="property__host"
+          >
+            <h2
+              className="property__host-title"
+            >
+              Meet the host
+            </h2>
+            <div
+              className="property__host-user user"
+            >
+              <div
+                className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper"
+              >
+                <img
+                  alt="Host avatarUrl"
+                  className="property__avatar user__avatar"
+                  height="74"
+                  src="img/avatar-angelina.jpg"
+                  width="74"
+                />
+              </div>
+              <span
+                className="property__user-name"
+              />
+            </div>
+            <div
+              className="property__description"
+            >
+              <p
+                className="property__text"
+              >
+                Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.
+              </p>
+            </div>
+          </div>
+          <OfferReviews
+            reviews={Array []}
+          />
+        </div>
+      </div>
+      <section
+        className="property__map map"
+      >
+        <Map
+          mapStyle={
+            Object {
+              "display": "flex",
+              "height": "100%",
+              "margin": "0 auto",
+              "width": 1144,
+            }
+          }
+          offers={
+            Array [
+              Object {
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.938361,
+                    "longitude": 6.959974,
+                    "zoom": 13,
+                  },
+                  "name": "Cologne",
+                },
+                "description": "Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.",
+                "goods": Array [
+                  "Laptop friendly workspace",
+                  "Washer",
+                  "Towels",
+                  "Fridge",
+                  "Air conditioning",
+                  "Baby seat",
+                  "Breakfast",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 1,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.957361,
+                  "longitude": 6.9509739999999995,
+                  "zoom": 16,
+                },
+                "maxAdults": 4,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                "price": 493,
+                "rating": 3.8,
+                "title": "The house among olive ",
+                "type": "HOUSE",
+              },
+              Object {
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.846557,
+                    "longitude": 4.351697,
+                    "zoom": 13,
+                  },
+                  "name": "Brussels",
+                },
+                "description": "This is a place for dreamers to reset, reflect, and create. Designed with a \`slow\` pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.",
+                "goods": Array [
+                  "Towels",
+                  "Baby seat",
+                  "Laptop friendly workspace",
+                  "Dishwasher",
+                  "Washing machine",
+                  "Air conditioning",
+                  "Washer",
+                  "Coffee machine",
+                  "Breakfast",
+                  "Fridge",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 2,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/20.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/18.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.839557,
+                  "longitude": 4.346697,
+                  "zoom": 16,
+                },
+                "maxAdults": 8,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                "price": 323,
+                "rating": 4.3,
+                "title": "Amazing and Extremely Central Flat",
+                "type": "APARTMENT",
+              },
+              Object {
+                "bedrooms": 4,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.846557,
+                    "longitude": 4.351697,
+                    "zoom": 13,
+                  },
+                  "name": "Brussels",
+                },
+                "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+                "goods": Array [
+                  "Washer",
+                  "Laptop friendly workspace",
+                  "Breakfast",
+                  "Air conditioning",
+                  "Baby seat",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 3,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/12.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/6.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.865556999999995,
+                  "longitude": 4.371696999999999,
+                  "zoom": 16,
+                },
+                "maxAdults": 7,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                "price": 218,
+                "rating": 4.6,
+                "title": "The house among olive ",
+                "type": "APARTMENT",
+              },
+            ]
+          }
+        />
+      </section>
+    </section>
+    <div
+      className="container"
+    >
+      <section
+        className="near-places places"
+      >
+        <h2
+          className="near-places__title"
+        >
+          Other places in the neighbourhood
+        </h2>
+        <PlacesList
+          currentClasses={
+            Object {
+              "cardClass": "near-places__card",
+              "imgClass": "near-places__image-wrapper",
+              "listClass": "near-places__list",
+            }
+          }
+          offers={
+            Array [
+              Object {
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.938361,
+                    "longitude": 6.959974,
+                    "zoom": 13,
+                  },
+                  "name": "Cologne",
+                },
+                "description": "Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.",
+                "goods": Array [
+                  "Laptop friendly workspace",
+                  "Washer",
+                  "Towels",
+                  "Fridge",
+                  "Air conditioning",
+                  "Baby seat",
+                  "Breakfast",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 1,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.957361,
+                  "longitude": 6.9509739999999995,
+                  "zoom": 16,
+                },
+                "maxAdults": 4,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                "price": 493,
+                "rating": 3.8,
+                "title": "The house among olive ",
+                "type": "HOUSE",
+              },
+              Object {
+                "bedrooms": 3,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.846557,
+                    "longitude": 4.351697,
+                    "zoom": 13,
+                  },
+                  "name": "Brussels",
+                },
+                "description": "This is a place for dreamers to reset, reflect, and create. Designed with a \`slow\` pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.",
+                "goods": Array [
+                  "Towels",
+                  "Baby seat",
+                  "Laptop friendly workspace",
+                  "Dishwasher",
+                  "Washing machine",
+                  "Air conditioning",
+                  "Washer",
+                  "Coffee machine",
+                  "Breakfast",
+                  "Fridge",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 2,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/20.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/14.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/13.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/18.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/15.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/9.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.839557,
+                  "longitude": 4.346697,
+                  "zoom": 16,
+                },
+                "maxAdults": 8,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                "price": 323,
+                "rating": 4.3,
+                "title": "Amazing and Extremely Central Flat",
+                "type": "APARTMENT",
+              },
+              Object {
+                "bedrooms": 4,
+                "city": Object {
+                  "location": Object {
+                    "latitude": 50.846557,
+                    "longitude": 4.351697,
+                    "zoom": 13,
+                  },
+                  "name": "Brussels",
+                },
+                "description": "Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.",
+                "goods": Array [
+                  "Washer",
+                  "Laptop friendly workspace",
+                  "Breakfast",
+                  "Air conditioning",
+                  "Baby seat",
+                ],
+                "host": Object {
+                  "avatarUrl": "img/avatar-angelina.jpg",
+                  "isPro": true,
+                },
+                "id": 3,
+                "images": Array [
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/2.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/1.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/12.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/17.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/5.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/11.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/6.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/4.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/8.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/19.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/7.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/10.jpg",
+                  "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/3.jpg",
+                ],
+                "isFavorite": false,
+                "isPremium": false,
+                "location": Object {
+                  "latitude": 50.865556999999995,
+                  "longitude": 4.371696999999999,
+                  "zoom": 16,
+                },
+                "maxAdults": 7,
+                "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/hotel/16.jpg",
+                "price": 218,
+                "rating": 4.6,
+                "title": "The house among olive ",
+                "type": "APARTMENT",
+              },
+            ]
+          }
+          onMouse={[Function]}
+        />
+      </section>
+    </div>
+  </main>
+</div>
+`;

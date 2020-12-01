@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Message render correctly 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#d20000",
+      "color": "#fff",
+      "display": "block",
+      "position": "fixed",
+      "textAlign": "center",
+      "width": "100%",
+      "zIndex": "100",
+    }
+  }
+>
+  Ошибка
+</div>
+`;

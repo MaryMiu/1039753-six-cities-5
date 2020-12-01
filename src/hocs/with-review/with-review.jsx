@@ -1,5 +1,4 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
 
 const withReview = (Component) => {
   class WithReview extends PureComponent {
@@ -50,12 +49,6 @@ const withReview = (Component) => {
       );
     }
   }
-
-  WithReview.propTypes = {
-    onChangeForm: PropTypes.func.isRequired,
-    onChangeInputState: PropTypes.func.isRequired,
-    onChangeButtonState: PropTypes.func.isRequired,
-  };
 
   return WithReview;
 };

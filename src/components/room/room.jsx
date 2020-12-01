@@ -142,7 +142,7 @@ class Room extends PureComponent {
             <div className="container">
               <section className="near-places places">
                 <h2 className="near-places__title">Other places in the neighbourhood</h2>
-                <PlacesList offers={offersNearby} currentClasses={currentClasses} onMouseEnter={() => null}/>
+                <PlacesList offers={offersNearby} currentClasses={currentClasses} onMouse={() => null}/>
               </section>
             </div>
           </main>
@@ -157,21 +157,7 @@ class Room extends PureComponent {
 Room.propTypes = {
   offers: PropTypes.array.isRequired,
   offersNearby: PropTypes.array.isRequired,
-  offer: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    images: PropTypes.array.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    isFavorite: PropTypes.bool.isRequired,
-    type: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    bedrooms: PropTypes.number.isRequired,
-    maxAdults: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    goods: PropTypes.array.isRequired,
-    host: PropTypes.object.isRequired,
-  }),
+  offer: PropTypes.object.isRequired,
   fetchOfferAction: PropTypes.func.isRequired,
   fetchOffersNearbyAction: PropTypes.func.isRequired,
   fetchCommentsAction: PropTypes.func.isRequired,

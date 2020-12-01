@@ -5,9 +5,6 @@ export const ActionCreator = {
     type: ActionType.CHANGE_CITY,
     payload: cityName,
   }),
-  resetCity: () => ({
-    type: ActionType.RESET_CITY,
-  }),
   getActiveOffer: (offer) => ({
     type: ActionType.GET_ACTIVE_OFFER,
     payload: offer,

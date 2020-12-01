@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import withPlace from "../../hocs/with-place/with-place";
 import PlaceCard from "../place-card/place-card";
 
 const PlacesList = (props) => {
@@ -26,6 +27,6 @@ PlacesList.propTypes = {
   offers: PropTypes.array.isRequired,
   onMouse: PropTypes.func.isRequired
 };
-
-export default PlacesList;
+export {PlacesList};
+export default withPlace(PlacesList);
 
