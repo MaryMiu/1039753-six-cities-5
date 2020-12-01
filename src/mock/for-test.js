@@ -297,3 +297,5 @@ export const mapStyle = {
   width: 1144,
   margin: `0 auto`
 };
+
+export const offersId = [1, 2, 3];
